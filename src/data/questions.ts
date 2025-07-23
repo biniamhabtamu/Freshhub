@@ -725,47 +725,1356 @@ export const questions: Question[] = [
 
   // ==================== LOGIC QUESTIONS ====================
   // Logic Mid Collection 2021-2023
-  {
-    id: 'logic_mid_2021_1',
-    subject: 'Logic',
-    field: 'natural',
-    year: 2021,
-    type: 'mid',
-    question: 'What is a syllogism?',
-    options: ['A type of fallacy', 'A form of deductive reasoning', 'An inductive argument', 'A statistical method'],
-    correctAnswer: 1
+   {
+    "id": "logic_mid_2021_1",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "What is a syllogism?",
+    "options": [
+      "A type of fallacy",
+      "A form of deductive reasoning",
+      "An inductive argument",
+      "A statistical method"
+    ],
+    "correctAnswer": 1
   },
   {
-    id: 'logic_mid_2021_2',
-    subject: 'Logic',
-    field: 'natural',
-    year: 2021,
-    type: 'mid',
-    question: 'Which of the following is an example of modus ponens?',
-    options: ['If P then Q, not Q, therefore not P', 'If P then Q, P, therefore Q', 'P or Q, not P, therefore Q', 'P and Q, therefore P'],
-    correctAnswer: 1
+    "id": "logic_mid_2021_2",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "Which of the following is an example of modus ponens?",
+    "options": [
+      "If P then Q, not Q, therefore not P",
+      "If P then Q, P, therefore Q",
+      "P or Q, not P, therefore Q",
+      "P and Q, therefore P"
+    ],
+    "correctAnswer": 1
   },
   {
-    id: 'logic_mid_2022_1',
-    subject: 'Logic',
-    field: 'natural',
-    year: 2022,
-    type: 'mid',
-    question: 'What is the law of non-contradiction?',
-    options: ['Something cannot be both true and false', 'Everything must have a cause', 'All events are determined', 'Truth is relative'],
-    correctAnswer: 0
+    "id": "logic_mid_2021_3",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "What is the law of non-contradiction?",
+    "options": [
+      "Something cannot be both true and false",
+      "Everything must have a cause",
+      "All events are determined",
+      "Truth is relative"
+    ],
+    "correctAnswer": 0
   },
   {
-    id: 'logic_mid_2023_1',
-    subject: 'Logic',
-    field: 'natural',
-    year: 2023,
-    type: 'mid',
-    question: 'Which logical fallacy involves attacking the person rather than their argument?',
-    options: ['Straw man', 'Ad hominem', 'False dilemma', 'Circular reasoning'],
-    correctAnswer: 1
+    "id": "logic_mid_2021_4",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "Which logical fallacy involves attacking the person rather than their argument?",
+    "options": [
+      "Straw man",
+      "Ad hominem",
+      "False dilemma",
+      "Circular reasoning"
+    ],
+    "correctAnswer": 1
   },
-
+  {
+    "id": "logic_mid_2021_5",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "What is a necessary condition?",
+    "options": [
+      "A condition that must be present for an event to occur",
+      "A condition that guarantees an event",
+      "A condition that is irrelevant",
+      "A condition that prevents an event"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "logic_mid_2021_6",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "Which term describes an argument with true premises and a false conclusion?",
+    "options": [
+      "Valid",
+      "Invalid",
+      "Sound",
+      "Cogent"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2021_7",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "Which statement is always true in a valid deductive argument?",
+    "options": [
+      "Conclusion is true",
+      "Premises are true",
+      "Conclusion follows necessarily if premises are true",
+      "Premises are false"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "logic_mid_2021_8",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "What is a fallacy?",
+    "options": [
+      "A sound argument",
+      "An invalid form of reasoning",
+      "A logical theorem",
+      "A scientific theory"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2021_9",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "What is modus tollens?",
+    "options": [
+      "If P then Q, P, therefore Q",
+      "If P then Q, not Q, therefore not P",
+      "P or Q, not P, therefore Q",
+      "P and Q, therefore P"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2021_10",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "What is a sufficient condition?",
+    "options": [
+      "It is necessary for an event",
+      "It guarantees the event",
+      "It always prevents the event",
+      "It is unrelated to the event"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2021_11",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "What is a syllogism?",
+    "options": [
+      "A type of fallacy",
+      "A form of deductive reasoning",
+      "An inductive argument",
+      "A statistical method"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2021_12",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "Which of the following is an example of modus ponens?",
+    "options": [
+      "If P then Q, not Q, therefore not P",
+      "If P then Q, P, therefore Q",
+      "P or Q, not P, therefore Q",
+      "P and Q, therefore P"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2021_13",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "What is the law of non-contradiction?",
+    "options": [
+      "Something cannot be both true and false",
+      "Everything must have a cause",
+      "All events are determined",
+      "Truth is relative"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "logic_mid_2021_14",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "Which logical fallacy involves attacking the person rather than their argument?",
+    "options": [
+      "Straw man",
+      "Ad hominem",
+      "False dilemma",
+      "Circular reasoning"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2021_15",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "What is a necessary condition?",
+    "options": [
+      "A condition that must be present for an event to occur",
+      "A condition that guarantees an event",
+      "A condition that is irrelevant",
+      "A condition that prevents an event"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "logic_mid_2021_16",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "Which term describes an argument with true premises and a false conclusion?",
+    "options": [
+      "Valid",
+      "Invalid",
+      "Sound",
+      "Cogent"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2021_17",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "Which statement is always true in a valid deductive argument?",
+    "options": [
+      "Conclusion is true",
+      "Premises are true",
+      "Conclusion follows necessarily if premises are true",
+      "Premises are false"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "logic_mid_2021_18",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "What is a fallacy?",
+    "options": [
+      "A sound argument",
+      "An invalid form of reasoning",
+      "A logical theorem",
+      "A scientific theory"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2021_19",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "What is modus tollens?",
+    "options": [
+      "If P then Q, P, therefore Q",
+      "If P then Q, not Q, therefore not P",
+      "P or Q, not P, therefore Q",
+      "P and Q, therefore P"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2021_20",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "What is a sufficient condition?",
+    "options": [
+      "It is necessary for an event",
+      "It guarantees the event",
+      "It always prevents the event",
+      "It is unrelated to the event"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2021_21",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "What is a syllogism?",
+    "options": [
+      "A type of fallacy",
+      "A form of deductive reasoning",
+      "An inductive argument",
+      "A statistical method"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2021_22",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "Which of the following is an example of modus ponens?",
+    "options": [
+      "If P then Q, not Q, therefore not P",
+      "If P then Q, P, therefore Q",
+      "P or Q, not P, therefore Q",
+      "P and Q, therefore P"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2021_23",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "What is the law of non-contradiction?",
+    "options": [
+      "Something cannot be both true and false",
+      "Everything must have a cause",
+      "All events are determined",
+      "Truth is relative"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "logic_mid_2021_24",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "Which logical fallacy involves attacking the person rather than their argument?",
+    "options": [
+      "Straw man",
+      "Ad hominem",
+      "False dilemma",
+      "Circular reasoning"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2021_25",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "What is a necessary condition?",
+    "options": [
+      "A condition that must be present for an event to occur",
+      "A condition that guarantees an event",
+      "A condition that is irrelevant",
+      "A condition that prevents an event"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "logic_mid_2021_26",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "Which term describes an argument with true premises and a false conclusion?",
+    "options": [
+      "Valid",
+      "Invalid",
+      "Sound",
+      "Cogent"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2021_27",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "Which statement is always true in a valid deductive argument?",
+    "options": [
+      "Conclusion is true",
+      "Premises are true",
+      "Conclusion follows necessarily if premises are true",
+      "Premises are false"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "logic_mid_2021_28",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "What is a fallacy?",
+    "options": [
+      "A sound argument",
+      "An invalid form of reasoning",
+      "A logical theorem",
+      "A scientific theory"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2021_29",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "What is modus tollens?",
+    "options": [
+      "If P then Q, P, therefore Q",
+      "If P then Q, not Q, therefore not P",
+      "P or Q, not P, therefore Q",
+      "P and Q, therefore P"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2021_30",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2021,
+    "type": "mid",
+    "question": "What is a sufficient condition?",
+    "options": [
+      "It is necessary for an event",
+      "It guarantees the event",
+      "It always prevents the event",
+      "It is unrelated to the event"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_1",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "What is a syllogism?",
+    "options": [
+      "A type of fallacy",
+      "A form of deductive reasoning",
+      "An inductive argument",
+      "A statistical method"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_2",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "Which of the following is an example of modus ponens?",
+    "options": [
+      "If P then Q, not Q, therefore not P",
+      "If P then Q, P, therefore Q",
+      "P or Q, not P, therefore Q",
+      "P and Q, therefore P"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_3",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "What is the law of non-contradiction?",
+    "options": [
+      "Something cannot be both true and false",
+      "Everything must have a cause",
+      "All events are determined",
+      "Truth is relative"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "logic_mid_2022_4",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "Which logical fallacy involves attacking the person rather than their argument?",
+    "options": [
+      "Straw man",
+      "Ad hominem",
+      "False dilemma",
+      "Circular reasoning"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_5",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "What is a necessary condition?",
+    "options": [
+      "A condition that must be present for an event to occur",
+      "A condition that guarantees an event",
+      "A condition that is irrelevant",
+      "A condition that prevents an event"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "logic_mid_2022_6",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "Which term describes an argument with true premises and a false conclusion?",
+    "options": [
+      "Valid",
+      "Invalid",
+      "Sound",
+      "Cogent"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_7",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "Which statement is always true in a valid deductive argument?",
+    "options": [
+      "Conclusion is true",
+      "Premises are true",
+      "Conclusion follows necessarily if premises are true",
+      "Premises are false"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "logic_mid_2022_8",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "What is a fallacy?",
+    "options": [
+      "A sound argument",
+      "An invalid form of reasoning",
+      "A logical theorem",
+      "A scientific theory"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_9",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "What is modus tollens?",
+    "options": [
+      "If P then Q, P, therefore Q",
+      "If P then Q, not Q, therefore not P",
+      "P or Q, not P, therefore Q",
+      "P and Q, therefore P"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_10",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "What is a sufficient condition?",
+    "options": [
+      "It is necessary for an event",
+      "It guarantees the event",
+      "It always prevents the event",
+      "It is unrelated to the event"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_11",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "What is a syllogism?",
+    "options": [
+      "A type of fallacy",
+      "A form of deductive reasoning",
+      "An inductive argument",
+      "A statistical method"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_12",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "Which of the following is an example of modus ponens?",
+    "options": [
+      "If P then Q, not Q, therefore not P",
+      "If P then Q, P, therefore Q",
+      "P or Q, not P, therefore Q",
+      "P and Q, therefore P"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_13",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "What is the law of non-contradiction?",
+    "options": [
+      "Something cannot be both true and false",
+      "Everything must have a cause",
+      "All events are determined",
+      "Truth is relative"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "logic_mid_2022_14",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "Which logical fallacy involves attacking the person rather than their argument?",
+    "options": [
+      "Straw man",
+      "Ad hominem",
+      "False dilemma",
+      "Circular reasoning"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_15",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "What is a necessary condition?",
+    "options": [
+      "A condition that must be present for an event to occur",
+      "A condition that guarantees an event",
+      "A condition that is irrelevant",
+      "A condition that prevents an event"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "logic_mid_2022_16",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "Which term describes an argument with true premises and a false conclusion?",
+    "options": [
+      "Valid",
+      "Invalid",
+      "Sound",
+      "Cogent"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_17",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "Which statement is always true in a valid deductive argument?",
+    "options": [
+      "Conclusion is true",
+      "Premises are true",
+      "Conclusion follows necessarily if premises are true",
+      "Premises are false"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "logic_mid_2022_18",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "What is a fallacy?",
+    "options": [
+      "A sound argument",
+      "An invalid form of reasoning",
+      "A logical theorem",
+      "A scientific theory"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_19",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "What is modus tollens?",
+    "options": [
+      "If P then Q, P, therefore Q",
+      "If P then Q, not Q, therefore not P",
+      "P or Q, not P, therefore Q",
+      "P and Q, therefore P"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_20",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "What is a sufficient condition?",
+    "options": [
+      "It is necessary for an event",
+      "It guarantees the event",
+      "It always prevents the event",
+      "It is unrelated to the event"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_21",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "What is a syllogism?",
+    "options": [
+      "A type of fallacy",
+      "A form of deductive reasoning",
+      "An inductive argument",
+      "A statistical method"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_22",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "Which of the following is an example of modus ponens?",
+    "options": [
+      "If P then Q, not Q, therefore not P",
+      "If P then Q, P, therefore Q",
+      "P or Q, not P, therefore Q",
+      "P and Q, therefore P"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_23",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "What is the law of non-contradiction?",
+    "options": [
+      "Something cannot be both true and false",
+      "Everything must have a cause",
+      "All events are determined",
+      "Truth is relative"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "logic_mid_2022_24",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "Which logical fallacy involves attacking the person rather than their argument?",
+    "options": [
+      "Straw man",
+      "Ad hominem",
+      "False dilemma",
+      "Circular reasoning"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_25",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "What is a necessary condition?",
+    "options": [
+      "A condition that must be present for an event to occur",
+      "A condition that guarantees an event",
+      "A condition that is irrelevant",
+      "A condition that prevents an event"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "logic_mid_2022_26",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "Which term describes an argument with true premises and a false conclusion?",
+    "options": [
+      "Valid",
+      "Invalid",
+      "Sound",
+      "Cogent"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_27",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "Which statement is always true in a valid deductive argument?",
+    "options": [
+      "Conclusion is true",
+      "Premises are true",
+      "Conclusion follows necessarily if premises are true",
+      "Premises are false"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "logic_mid_2022_28",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "What is a fallacy?",
+    "options": [
+      "A sound argument",
+      "An invalid form of reasoning",
+      "A logical theorem",
+      "A scientific theory"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_29",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "What is modus tollens?",
+    "options": [
+      "If P then Q, P, therefore Q",
+      "If P then Q, not Q, therefore not P",
+      "P or Q, not P, therefore Q",
+      "P and Q, therefore P"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2022_30",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2022,
+    "type": "mid",
+    "question": "What is a sufficient condition?",
+    "options": [
+      "It is necessary for an event",
+      "It guarantees the event",
+      "It always prevents the event",
+      "It is unrelated to the event"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_1",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "What is a syllogism?",
+    "options": [
+      "A type of fallacy",
+      "A form of deductive reasoning",
+      "An inductive argument",
+      "A statistical method"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_2",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "Which of the following is an example of modus ponens?",
+    "options": [
+      "If P then Q, not Q, therefore not P",
+      "If P then Q, P, therefore Q",
+      "P or Q, not P, therefore Q",
+      "P and Q, therefore P"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_3",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "What is the law of non-contradiction?",
+    "options": [
+      "Something cannot be both true and false",
+      "Everything must have a cause",
+      "All events are determined",
+      "Truth is relative"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "logic_mid_2023_4",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "Which logical fallacy involves attacking the person rather than their argument?",
+    "options": [
+      "Straw man",
+      "Ad hominem",
+      "False dilemma",
+      "Circular reasoning"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_5",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "What is a necessary condition?",
+    "options": [
+      "A condition that must be present for an event to occur",
+      "A condition that guarantees an event",
+      "A condition that is irrelevant",
+      "A condition that prevents an event"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "logic_mid_2023_6",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "Which term describes an argument with true premises and a false conclusion?",
+    "options": [
+      "Valid",
+      "Invalid",
+      "Sound",
+      "Cogent"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_7",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "Which statement is always true in a valid deductive argument?",
+    "options": [
+      "Conclusion is true",
+      "Premises are true",
+      "Conclusion follows necessarily if premises are true",
+      "Premises are false"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "logic_mid_2023_8",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "What is a fallacy?",
+    "options": [
+      "A sound argument",
+      "An invalid form of reasoning",
+      "A logical theorem",
+      "A scientific theory"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_9",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "What is modus tollens?",
+    "options": [
+      "If P then Q, P, therefore Q",
+      "If P then Q, not Q, therefore not P",
+      "P or Q, not P, therefore Q",
+      "P and Q, therefore P"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_10",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "What is a sufficient condition?",
+    "options": [
+      "It is necessary for an event",
+      "It guarantees the event",
+      "It always prevents the event",
+      "It is unrelated to the event"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_11",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "What is a syllogism?",
+    "options": [
+      "A type of fallacy",
+      "A form of deductive reasoning",
+      "An inductive argument",
+      "A statistical method"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_12",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "Which of the following is an example of modus ponens?",
+    "options": [
+      "If P then Q, not Q, therefore not P",
+      "If P then Q, P, therefore Q",
+      "P or Q, not P, therefore Q",
+      "P and Q, therefore P"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_13",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "What is the law of non-contradiction?",
+    "options": [
+      "Something cannot be both true and false",
+      "Everything must have a cause",
+      "All events are determined",
+      "Truth is relative"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "logic_mid_2023_14",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "Which logical fallacy involves attacking the person rather than their argument?",
+    "options": [
+      "Straw man",
+      "Ad hominem",
+      "False dilemma",
+      "Circular reasoning"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_15",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "What is a necessary condition?",
+    "options": [
+      "A condition that must be present for an event to occur",
+      "A condition that guarantees an event",
+      "A condition that is irrelevant",
+      "A condition that prevents an event"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "logic_mid_2023_16",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "Which term describes an argument with true premises and a false conclusion?",
+    "options": [
+      "Valid",
+      "Invalid",
+      "Sound",
+      "Cogent"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_17",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "Which statement is always true in a valid deductive argument?",
+    "options": [
+      "Conclusion is true",
+      "Premises are true",
+      "Conclusion follows necessarily if premises are true",
+      "Premises are false"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "logic_mid_2023_18",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "What is a fallacy?",
+    "options": [
+      "A sound argument",
+      "An invalid form of reasoning",
+      "A logical theorem",
+      "A scientific theory"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_19",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "What is modus tollens?",
+    "options": [
+      "If P then Q, P, therefore Q",
+      "If P then Q, not Q, therefore not P",
+      "P or Q, not P, therefore Q",
+      "P and Q, therefore P"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_20",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "What is a sufficient condition?",
+    "options": [
+      "It is necessary for an event",
+      "It guarantees the event",
+      "It always prevents the event",
+      "It is unrelated to the event"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_21",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "What is a syllogism?",
+    "options": [
+      "A type of fallacy",
+      "A form of deductive reasoning",
+      "An inductive argument",
+      "A statistical method"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_22",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "Which of the following is an example of modus ponens?",
+    "options": [
+      "If P then Q, not Q, therefore not P",
+      "If P then Q, P, therefore Q",
+      "P or Q, not P, therefore Q",
+      "P and Q, therefore P"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_23",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "What is the law of non-contradiction?",
+    "options": [
+      "Something cannot be both true and false",
+      "Everything must have a cause",
+      "All events are determined",
+      "Truth is relative"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "logic_mid_2023_24",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "Which logical fallacy involves attacking the person rather than their argument?",
+    "options": [
+      "Straw man",
+      "Ad hominem",
+      "False dilemma",
+      "Circular reasoning"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_25",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "What is a necessary condition?",
+    "options": [
+      "A condition that must be present for an event to occur",
+      "A condition that guarantees an event",
+      "A condition that is irrelevant",
+      "A condition that prevents an event"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "logic_mid_2023_26",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "Which term describes an argument with true premises and a false conclusion?",
+    "options": [
+      "Valid",
+      "Invalid",
+      "Sound",
+      "Cogent"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_27",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "Which statement is always true in a valid deductive argument?",
+    "options": [
+      "Conclusion is true",
+      "Premises are true",
+      "Conclusion follows necessarily if premises are true",
+      "Premises are false"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "logic_mid_2023_28",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "What is a fallacy?",
+    "options": [
+      "A sound argument",
+      "An invalid form of reasoning",
+      "A logical theorem",
+      "A scientific theory"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_29",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "What is modus tollens?",
+    "options": [
+      "If P then Q, P, therefore Q",
+      "If P then Q, not Q, therefore not P",
+      "P or Q, not P, therefore Q",
+      "P and Q, therefore P"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "logic_mid_2023_30",
+    "subject": "Logic",
+    "field": "natural",
+    "year": 2023,
+    "type": "mid",
+    "question": "What is a sufficient condition?",
+    "options": [
+      "It is necessary for an event",
+      "It guarantees the event",
+      "It always prevents the event",
+      "It is unrelated to the event"
+    ],
+    "correctAnswer": 1
+  },
   // Logic Final Questions 2021-2024
   {
     id: 'logic_final_2021_1',
@@ -777,6 +2086,951 @@ export const questions: Question[] = [
     options: ['From a contradiction, anything follows', 'Complex arguments are invalid', 'Truth values explode', 'Logic has limits'],
     correctAnswer: 0
   },
+  {
+  id: 'logic_final_2021_1',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'What is the principle of explosion in logic?',
+  options: ['From a contradiction, anything follows', 'Complex arguments are invalid', 'Truth values explode', 'Logic has limits'],
+  correctAnswer: 0
+},
+{
+  id: 'logic_final_2021_2',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'Which of these is NOT a valid rule of inference in propositional logic?',
+  options: ['Modus Ponens', 'Modus Tollens', 'Affirming the Consequent', 'Disjunctive Syllogism'],
+  correctAnswer: 2
+},
+{
+  id: 'logic_final_2021_3',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'In predicate logic, what does the universal quantifier (∀) represent?',
+  options: ['There exists at least one', 'For all', 'There exists exactly one', 'For some'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2021_4',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'Which logical connective represents "if and only if"?',
+  options: ['→', '∧', '∨', '↔'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2021_5',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'What is the negation of the statement "All birds can fly"?',
+  options: ['No birds can fly', 'Some birds cannot fly', 'All birds cannot fly', 'Some birds can fly'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2021_6',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'Which of these is a tautology?',
+  options: ['P ∧ ¬P', 'P ∨ ¬P', 'P → Q', 'P ∧ Q'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2021_7',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'What is the contrapositive of "If it rains, then the ground gets wet"?',
+  options: [
+    'If the ground gets wet, then it rains',
+    'If the ground does not get wet, then it does not rain',
+    'If it does not rain, then the ground does not get wet',
+    'The ground gets wet only if it rains'
+  ],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2021_8',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'Which logical fallacy occurs when one assumes that because something is popular, it is correct?',
+  options: ['Straw man', 'Ad hominem', 'Appeal to authority', 'Bandwagon fallacy'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2021_9',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'In modal logic, what does □P typically represent?',
+  options: ['Possibly P', 'Necessarily P', 'Not P', 'P is contingent'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2021_10',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'Which of these is an example of De Morgan\'s Law?',
+  options: [
+    '¬(P ∧ Q) ≡ ¬P ∨ ¬Q',
+    'P → Q ≡ ¬Q → ¬P',
+    'P ∨ (Q ∧ R) ≡ (P ∨ Q) ∧ (P ∨ R)',
+    'P ∧ P ≡ P'
+  ],
+  correctAnswer: 0
+},
+{
+  id: 'logic_final_2021_11',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'What is the main connective in the formula (P ∧ Q) → (R ∨ S)?',
+  options: ['∧', '∨', '→', '¬'],
+  correctAnswer: 2
+},
+{
+  id: 'logic_final_2021_12',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'Which of these is NOT a valid logical equivalence?',
+  options: [
+    'P → Q ≡ ¬P ∨ Q',
+    'P ↔ Q ≡ (P → Q) ∧ (Q → P)',
+    'P ∨ Q ≡ ¬(¬P ∧ ¬Q)',
+    'P ∧ Q ≡ ¬(P ∨ Q)'
+  ],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2021_13',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'What is the term for a statement that is always false?',
+  options: ['Tautology', 'Contingency', 'Contradiction', 'Equivalence'],
+  correctAnswer: 2
+},
+{
+  id: 'logic_final_2021_14',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'Which rule allows you to infer P ∧ Q from P and Q?',
+  options: ['Simplification', 'Conjunction', 'Addition', 'Disjunctive Syllogism'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2021_15',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'In first-order logic, what is a term?',
+  options: [
+    'A predicate applied to arguments',
+    'A variable, constant, or function applied to terms',
+    'A quantified expression',
+    'A logical connective'
+  ],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2021_16',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'Which of these is NOT a valid inference in propositional logic?',
+  options: [
+    'From P → Q and Q, infer P',
+    'From P ∨ Q and ¬P, infer Q',
+    'From P → Q and P, infer Q',
+    'From P → Q and ¬Q, infer ¬P'
+  ],
+  correctAnswer: 0
+},
+{
+  id: 'logic_final_2021_17',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'What is the term for replacing a bound variable in a logical expression with another variable?',
+  options: ['Substitution', 'Alpha conversion', 'Beta reduction', 'Universal instantiation'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2021_18',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'Which of these best describes the law of excluded middle?',
+  options: [
+    'A statement cannot be both true and false',
+    'Every statement is either true or false',
+    'If a statement implies a contradiction, it is false',
+    'A statement must be either true or not true'
+  ],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2021_19',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'What does the completeness theorem for propositional logic state?',
+  options: [
+    'All true statements are provable',
+    'All provable statements are true',
+    'The system is consistent',
+    'The system is decidable'
+  ],
+  correctAnswer: 0
+},
+{
+  id: 'logic_final_2021_20',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'Which of these is NOT a standard axiom in modal logic?',
+  options: ['□(P → Q) → (□P → □Q)', '□P → P', 'P → □P', '□P → ◇P'],
+  correctAnswer: 2
+},
+{
+  id: 'logic_final_2021_21',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'What is the term for a proof that demonstrates a statement by showing its negation leads to a contradiction?',
+  options: ['Direct proof', 'Constructive proof', 'Proof by contrapositive', 'Proof by contradiction'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2021_22',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'Which of these is NOT a type of categorical proposition in traditional logic?',
+  options: ['Universal affirmative', 'Universal negative', 'Particular affirmative', 'Conditional negative'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2021_23',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'In intuitionistic logic, which of these principles is NOT valid?',
+  options: [
+    'The law of non-contradiction',
+    'The law of excluded middle',
+    'Modus ponens',
+    'The principle of explosion'
+  ],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2021_24',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'What is the term for a logical system where statements have more than two truth values?',
+  options: ['Intuitionistic logic', 'Modal logic', 'Many-valued logic', 'Paraconsistent logic'],
+  correctAnswer: 2
+},
+{
+  id: 'logic_final_2021_25',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'Which of these is NOT a standard quantifier in predicate logic?',
+  options: ['∀', '∃', '∃!', '∃*'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2021_26',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'What is the term for a logical argument where the conclusion is guaranteed by the premises?',
+  options: ['Inductive', 'Deductive', 'Abductive', 'Analogical'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2021_27',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'Which of these is NOT a standard rule of replacement in propositional logic?',
+  options: ['Double negation', 'Distribution', 'Exportation', 'Simplification'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2021_28',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'What is the term for a function that takes propositions as input and returns a proposition as output?',
+  options: ['Predicate', 'Connective', 'Quantifier', 'Operator'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2021_29',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'Which of these is NOT a standard method of proof?',
+  options: ['Diagonalization', 'Enumeration', 'Induction', 'Contraposition'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2021_30',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2021,
+  type: 'final',
+  question: 'What is the term for a logical system that rejects the principle of explosion?',
+  options: ['Intuitionistic logic', 'Modal logic', 'Paraconsistent logic', 'Relevant logic'],
+  correctAnswer: 2
+},
+{
+  id: 'logic_final_2022_1',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'What is the principle of explosion in logic?',
+  options: ['From a contradiction, anything follows', 'Complex arguments are invalid', 'Truth values explode', 'Logic has limits'],
+  correctAnswer: 0
+},
+{
+  id: 'logic_final_2022_2',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'Which of these is a valid form of argument in propositional logic?',
+  options: ['Affirming the consequent', 'Denying the antecedent', 'Hypothetical syllogism', 'Begging the question'],
+  correctAnswer: 2
+},
+{
+  id: 'logic_final_2022_3',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'What is the term for a statement that is true in every possible interpretation?',
+  options: ['Contingent', 'Valid', 'Satisfiable', 'Tautology'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2022_4',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'Which of these is NOT a standard logical connective?',
+  options: ['NAND', 'XOR', 'NOR', 'AND'],
+  correctAnswer: 0
+},
+{
+  id: 'logic_final_2022_5',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'What is the term for the study of correct reasoning?',
+  options: ['Epistemology', 'Ontology', 'Logic', 'Semiotics'],
+  correctAnswer: 2
+},
+{
+  id: 'logic_final_2022_6',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'Which of these is NOT a standard quantifier in first-order logic?',
+  options: ['Universal', 'Existential', 'Uniqueness', 'Plural'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2022_7',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'What is the term for a variable that is not bound by a quantifier?',
+  options: ['Free variable', 'Open variable', 'Unbound variable', 'Literal'],
+  correctAnswer: 0
+},
+{
+  id: 'logic_final_2022_8',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'Which of these is NOT a standard method of proving validity in propositional logic?',
+  options: ['Truth tables', 'Natural deduction', 'Axiomatic proof', 'Empirical verification'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2022_9',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'What is the term for a set of sentences from which no contradiction can be derived?',
+  options: ['Complete', 'Consistent', 'Sound', 'Decidable'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2022_10',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'Which of these is NOT a standard axiom system for propositional logic?',
+  options: ['Hilbert system', 'Frege system', 'Russell system', 'Łukasiewicz system'],
+  correctAnswer: 2
+},
+{
+  id: 'logic_final_2022_11',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'What is the term for the principle that identicals are substitutable in all contexts?',
+  options: [
+    'Leibniz\'s Law',
+    'De Morgan\'s Law',
+    'Occam\'s Razor',
+    'Russell\'s Paradox'
+  ],
+  correctAnswer: 0
+},
+{
+  id: 'logic_final_2022_12',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'Which of these is NOT a standard rule of inference in natural deduction?',
+  options: ['Modus Ponens', 'Universal Generalization', 'Existential Instantiation', 'Biconditional Elimination'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2022_13',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'What is the term for a logical system that includes operators for "necessarily" and "possibly"?',
+  options: ['Predicate logic', 'Modal logic', 'Temporal logic', 'Deontic logic'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2022_14',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'Which of these is NOT a standard semantic for modal logic?',
+  options: ['Kripke semantics', 'Possible world semantics', 'Neighborhood semantics', 'Tarski semantics'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2022_15',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'What is the term for a formula with no free variables?',
+  options: ['Open formula', 'Closed formula', 'Ground formula', 'Atomic formula'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2022_16',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'Which of these is NOT a standard property of a logical system?',
+  options: ['Soundness', 'Completeness', 'Decidability', 'Relativity'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2022_17',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'What is the term for a proof that proceeds by proving a sequence of intermediate statements?',
+  options: ['Direct proof', 'Constructive proof', 'Proof by cases', 'Proof by exhaustion'],
+  correctAnswer: 0
+},
+{
+  id: 'logic_final_2022_18',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'Which of these is NOT a standard type of categorical syllogism?',
+  options: ['Barbara', 'Celarent', 'Darii', 'Socrates'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2022_19',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'What is the term for the study of the meaning of logical connectives?',
+  options: ['Syntax', 'Semantics', 'Pragmatics', 'Proof theory'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2022_20',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'Which of these is NOT a standard logical constant?',
+  options: ['Truth', 'Falsity', 'And', 'Therefore'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2022_21',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'What is the term for a function that returns a truth value?',
+  options: ['Predicate', 'Connective', 'Quantifier', 'Operator'],
+  correctAnswer: 0
+},
+{
+  id: 'logic_final_2022_22',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'Which of these is NOT a standard method of proving invalidity?',
+  options: ['Counterexample', 'Truth tables', 'Natural deduction', 'Venn diagrams'],
+  correctAnswer: 2
+},
+{
+  id: 'logic_final_2022_23',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'What is the term for a logical system that rejects the law of excluded middle?',
+  options: ['Classical logic', 'Intuitionistic logic', 'Modal logic', 'Paraconsistent logic'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2022_24',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'Which of these is NOT a standard type of logical paradox?',
+  options: ['Russell\'s paradox', 'Liar paradox', 'Sorites paradox', 'Plato\'s paradox'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2022_25',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'What is the term for a statement that must be true if the premises are true?',
+  options: ['Conclusion', 'Consequent', 'Antecedent', 'Conditional'],
+  correctAnswer: 0
+},
+{
+  id: 'logic_final_2022_26',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'Which of these is NOT a standard type of logical opposition?',
+  options: ['Contradictory', 'Contrary', 'Subcontrary', 'Subaltern'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2022_27',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'What is the term for a logical system that extends propositional logic with quantifiers?',
+  options: ['Modal logic', 'Predicate logic', 'Temporal logic', 'Deontic logic'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2022_28',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'Which of these is NOT a standard method of logical analysis?',
+  options: ['Truth tables', 'Venn diagrams', 'Natural deduction', 'Empirical observation'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2022_29',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'What is the term for a logical argument where the conclusion is probably true given the premises?',
+  options: ['Deductive', 'Inductive', 'Abductive', 'Analogical'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2022_30',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2022,
+  type: 'final',
+  question: 'Which of these is NOT a standard property of relations in logic?',
+  options: ['Reflexivity', 'Symmetry', 'Transitivity', 'Duality'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2023_1',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'What is the principle of explosion in logic?',
+  options: ['From a contradiction, anything follows', 'Complex arguments are invalid', 'Truth values explode', 'Logic has limits'],
+  correctAnswer: 0
+},
+{
+  id: 'logic_final_2023_2',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'Which of these is NOT a standard truth-functional connective?',
+  options: ['And', 'Or', 'If...then', 'Because'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2023_3',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'What is the term for a logical system that allows for vague predicates?',
+  options: ['Fuzzy logic', 'Modal logic', 'Temporal logic', 'Deontic logic'],
+  correctAnswer: 0
+},
+{
+  id: 'logic_final_2023_4',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'Which of these is NOT a standard type of logical equivalence?',
+  options: ['Material equivalence', 'Logical equivalence', 'Semantic equivalence', 'Syntactic equivalence'],
+  correctAnswer: 2
+},
+{
+  id: 'logic_final_2023_5',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'What is the term for a statement that is false in every possible interpretation?',
+  options: ['Contingent', 'Valid', 'Unsatisfiable', 'Tautology'],
+  correctAnswer: 2
+},
+{
+  id: 'logic_final_2023_6',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'Which of these is NOT a standard method of proof in predicate logic?',
+  options: ['Universal generalization', 'Existential instantiation', 'Universal instantiation', 'Existential generalization'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2023_7',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'What is the term for a logical system that studies obligations and permissions?',
+  options: ['Modal logic', 'Temporal logic', 'Deontic logic', 'Epistemic logic'],
+  correctAnswer: 2
+},
+{
+  id: 'logic_final_2023_8',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'Which of these is NOT a standard type of logical constant?',
+  options: ['Truth', 'Falsity', 'And', 'Therefore'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2023_9',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'What is the term for a logical system that studies knowledge and belief?',
+  options: ['Modal logic', 'Temporal logic', 'Deontic logic', 'Epistemic logic'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2023_10',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'Which of these is NOT a standard type of logical diagram?',
+  options: ['Venn diagram', 'Truth table', 'Carroll diagram', 'Euler diagram'],
+  correctAnswer: 2
+},
+{
+  id: 'logic_final_2023_11',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'What is the term for a logical system that studies time and temporal relationships?',
+  options: ['Modal logic', 'Temporal logic', 'Deontic logic', 'Epistemic logic'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2023_12',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'Which of these is NOT a standard type of logical fallacy?',
+  options: ['Straw man', 'Ad hominem', 'False dilemma', 'Valid inference'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2023_13',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'What is the term for a logical system that extends classical logic with additional operators?',
+  options: ['Non-classical logic', 'Extended logic', 'Supplemental logic', 'Enhanced logic'],
+  correctAnswer: 0
+},
+{
+  id: 'logic_final_2023_14',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'Which of these is NOT a standard type of logical quantifier?',
+  options: ['Universal', 'Existential', 'Uniqueness', 'Plural'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2023_15',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'What is the term for a logical system that rejects certain classical principles?',
+  options: ['Non-classical logic', 'Extended logic', 'Supplemental logic', 'Enhanced logic'],
+  correctAnswer: 0
+},
+{
+  id: 'logic_final_2023_16',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'Which of these is NOT a standard type of logical operator?',
+  options: ['Truth-functional', 'Non-truth-functional', 'Modal', 'Quantificational'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2023_17',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'What is the term for a logical system that studies conditional statements?',
+  options: ['Modal logic', 'Temporal logic', 'Relevance logic', 'Epistemic logic'],
+  correctAnswer: 2
+},
+{
+  id: 'logic_final_2023_18',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'Which of these is NOT a standard type of logical proof?',
+  options: ['Direct proof', 'Indirect proof', 'Constructive proof', 'Speculative proof'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2023_19',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'What is the term for a logical system that allows for truth value gaps?',
+  options: ['Paraconsistent logic', 'Many-valued logic', 'Partial logic', 'Free logic'],
+  correctAnswer: 2
+},
+{
+  id: 'logic_final_2023_20',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'Which of these is NOT a standard type of logical semantics?',
+  options: ['Model-theoretic', 'Proof-theoretic', 'Algebraic', 'Empirical'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2023_21',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'What is the term for a logical system that studies the logic of questions?',
+  options: ['Erotetic logic', 'Deontic logic', 'Epistemic logic', 'Temporal logic'],
+  correctAnswer: 0
+},
+{
+  id: 'logic_final_2023_22',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'Which of these is NOT a standard type of logical calculus?',
+  options: ['Propositional calculus', 'Predicate calculus', 'Modal calculus', 'Algebraic calculus'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2023_23',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'What is the term for a logical system that studies the logic of commands?',
+  options: ['Deontic logic', 'Imperative logic', 'Directive logic', 'Command logic'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2023_24',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'Which of these is NOT a standard type of logical validity?',
+  options: ['Deductive', 'Inductive', 'Abductive', 'Speculative'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2023_25',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'What is the term for a logical system that studies the logic of fiction?',
+  options: ['Fictional logic', 'Narrative logic', 'Story logic', 'None of the above'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2023_26',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'Which of these is NOT a standard type of logical relation?',
+  options: ['Entailment', 'Equivalence', 'Contradiction', 'Juxtaposition'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2023_27',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'What is the term for a logical system that studies the logic of preference?',
+  options: ['Preference logic', 'Deontic logic', 'Epistemic logic', 'Temporal logic'],
+  correctAnswer: 0
+},
+{
+  id: 'logic_final_2023_28',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'Which of these is NOT a standard type of logical form?',
+  options: ['Syllogistic', 'Propositional', 'Predicate', 'Narrative'],
+  correctAnswer: 3
+},
+{
+  id: 'logic_final_2023_29',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'What is the term for a logical system that studies the logic of action?',
+  options: ['Deontic logic', 'Dynamic logic', 'Epistemic logic', 'Temporal logic'],
+  correctAnswer: 1
+},
+{
+  id: 'logic_final_2023_30',
+  subject: 'Logic',
+  field: 'natural',
+  year: 2023,
+  type: 'final',
+  question: 'Which of these is NOT a standard type of logical theory?',
+  options: ['Proof theory', 'Model theory', 'Recursion theory', 'Narrative theory'],
+  correctAnswer: 3
+},
 
   // ==================== CIVIC QUESTIONS ====================
   // Civic Final Questions 2021-2024
