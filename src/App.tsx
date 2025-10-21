@@ -81,7 +81,7 @@ function AppContent() {
           <div className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
             <span className="text-white font-bold text-2xl">FH</span>
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Welcome to Fresh-Hub</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Welcome to RemdialHUb</h1>
           <p className="text-xl text-gray-600 mb-8">Your Ultimate Exam Preparation Platform</p>
           <div className="space-x-4">
             <button

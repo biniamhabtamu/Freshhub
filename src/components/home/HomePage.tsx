@@ -1,5 +1,5 @@
 import React from 'react';
-import { Lock, Play, BookOpen, Trophy, TrendingUp, Clock } from 'lucide-react';
+import { Lock, Play, BookOpen, Trophy, TrendingUp, Clock, Zap } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { subjects, getSubjectsByField } from '../../data/subjects';
 import { getQuestionsBySubject } from '../../data/questions';
@@ -14,7 +14,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   if (!userProfile) return null;
 
   const userSubjects = getSubjectsByField(userProfile.field);
-  
+
   // Get progress data from localStorage
   const getSubjectProgress = (subjectName: string) => {
     const progressKey = `progress_${userProfile.id}_${subjectName.toLowerCase()}`;
@@ -23,259 +23,117 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   };
 
   const getProgressColor = (percentage: number) => {
-    if (percentage === 0) return 'bg-gray-200';
+    if (percentage === 0) return 'bg-gray-300'; // Neutral for 0%
     if (percentage < 50) return 'bg-red-500';
+    if (percentage < 85) return 'bg-yellow-500'; // Add a mid-range color
     return 'bg-green-500';
   };
 
   const getProgressTextColor = (percentage: number) => {
-    if (percentage === 0) return 'text-gray-600';
+    if (percentage === 0) return 'text-gray-500';
     if (percentage < 50) return 'text-red-600';
+    if (percentage < 85) return 'text-yellow-600';
     return 'text-green-600';
   };
 
+  const totalProgressPercentage = Math.round(userSubjects.reduce((acc, subject) => {
+    const progress = getSubjectProgress(subject.name);
+    return acc + progress.percentage;
+  }, 0) / (userSubjects.length || 1));
+
+
   return (
-    <div className="min-h-screen bg-gray-50 p-4 lg:p-8">
+    <div className="min-h-screen bg-gray-50 p-4 pb-16 sm:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto">
-        {/* Welcome Section */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl p-8 text-white mb-8">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold mb-2">
-                Welcome back, {userProfile.name}! 👋
-              </h1>
-              <p className="text-blue-100 text-lg">
-                Ready to ace your {userProfile.field === 'natural' ? 'Natural Sciences' : 'Social Sciences'} exams?
-              </p>
-            </div>
-            <div className="hidden lg:block">
-              <div className="w-32 h-32 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-                <BookOpen className="h-16 w-16 text-white" />
-              </div>
-            </div>
-          </div>
+        
+        {/* Quick Stats - Mobile-friendly stacking */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 mb-8">
+          <StatCard
+            title="Total Subjects"
+            value={userSubjects.length.toString()}
+            icon={<BookOpen className="h-5 w-5 text-blue-600" />}
+            bgColor="bg-blue-50"
+          />
+          <StatCard
+            title="Premium Status"
+            value={userProfile.isPremium ? 'Active' : 'Free'}
+            icon={<Trophy className="h-5 w-5 text-yellow-600" />}
+            bgColor="bg-yellow-50"
+          />
+          <StatCard
+            title="Overall Progress"
+            value={`${totalProgressPercentage}%`}
+            icon={<TrendingUp className="h-5 w-5 text-green-600" />}
+            bgColor="bg-green-50"
+          />
         </div>
 
-        {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-gray-600">Available Subjects</p>
-                <p className="text-2xl font-bold text-gray-900">{userSubjects.length}</p>
-              </div>
-              <div className="p-3 bg-blue-50 rounded-lg">
-                <BookOpen className="h-6 w-6 text-blue-600" />
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-gray-600">Premium Status</p>
-                <p className="text-2xl font-bold text-gray-900">
-                  {userProfile.isPremium ? 'Active' : 'Free'}
-                </p>
-              </div>
-              <div className="p-3 bg-yellow-50 rounded-lg">
-                <Trophy className="h-6 w-6 text-yellow-600" />
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-gray-600">Total Progress</p>
-                <p className="text-2xl font-bold text-gray-900">
-                  {Math.round(userSubjects.reduce((acc, subject) => {
-                    const progress = getSubjectProgress(subject.name);
-                    return acc + progress.percentage;
-                  }, 0) / userSubjects.length) || 0}%
-                </p>
-              </div>
-              <div className="p-3 bg-green-50 rounded-lg">
-                <TrendingUp className="h-6 w-6 text-green-600" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Subjects Grid */}
-        <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
+        {/* Subjects Grid - The core content */}
+        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-4 sm:p-6 lg:p-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">Your Subjects</h2>
-            <div className="flex items-center space-x-2 text-sm text-gray-600">
-              <div className="flex items-center space-x-1">
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span>Free</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <Lock className="h-3 w-3" />
-                <span>Premium</span>
-              </div>
-            </div>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900">Study Subjects</h2>
+            <Legend />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
             {userSubjects.map((subject) => {
               const progress = getSubjectProgress(subject.name);
               const isAccessible = !subject.isPremium || userProfile.isPremium;
               const questionsCount = getQuestionsBySubject(subject.name, userProfile.field).length;
 
               return (
-                <div
+                <SubjectCard
                   key={subject.id}
-                  className={`
-                    relative bg-white border-2 rounded-xl p-6 transition-all duration-200 hover:shadow-lg
-                    ${isAccessible 
-                      ? 'border-gray-200 hover:border-blue-300 cursor-pointer' 
-                      : 'border-gray-200 bg-gray-50'
-                    }
-                  `}
-                  onClick={() => isAccessible && onNavigate('subject', subject.name)}
-                >
-                  {/* Premium Lock */}
-                  {!isAccessible && (
-                    <div className="absolute top-3 right-3">
-                      <div className="p-1.5 bg-gray-200 rounded-full">
-                        <Lock className="h-4 w-4 text-gray-500" />
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Subject Icon */}
-                  <div className="text-4xl mb-4">{subject.icon}</div>
-
-                  {/* Subject Info */}
-                  <h3 className={`font-bold text-lg mb-2 ${isAccessible ? 'text-gray-900' : 'text-gray-500'}`}>
-                    {subject.name}
-                  </h3>
-                  <p className={`text-sm mb-4 ${isAccessible ? 'text-gray-600' : 'text-gray-400'}`}>
-                    {subject.description}
-                  </p>
-
-                  {/* Questions Count */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center space-x-1">
-                      <Clock className="h-4 w-4 text-gray-400" />
-                      <span className="text-sm text-gray-600">{questionsCount} questions</span>
-                    </div>
-                    {!subject.isPremium && (
-                      <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium">
-                        FREE
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Progress Bar */}
-                  {isAccessible && (
-                    <div className="space-y-2">
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium text-gray-700">Progress</span>
-                        <span className={`text-sm font-bold ${getProgressTextColor(progress.percentage)}`}>
-                          {progress.percentage}%
-                        </span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
-                        <div 
-                          className={`h-2 rounded-full transition-all duration-300 ${getProgressColor(progress.percentage)}`}
-                          style={{ width: `${progress.percentage}%` }}
-                        />
-                      </div>
-                      <div className="flex justify-between text-xs text-gray-500">
-                        <span>{progress.completed} completed</span>
-                        <span>{progress.total} total</span>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Action Button */}
-                  {isAccessible ? (
-                    <button className="w-full mt-4 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2">
-                      <Play className="h-4 w-4" />
-                      <span>Start Learning</span>
-                    </button>
-                  ) : (
-                    <button 
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onNavigate('premium');
-                      }}
-                      className="w-full mt-4 bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-600 transition-colors flex items-center justify-center space-x-2"
-                    >
-                      <Lock className="h-4 w-4" />
-                      <span>Upgrade to Access</span>
-                    </button>
-                  )}
-                </div>
+                  subject={subject}
+                  progress={progress}
+                  isAccessible={isAccessible}
+                  questionsCount={questionsCount}
+                  userProfile={userProfile}
+                  onNavigate={onNavigate}
+                  getProgressColor={getProgressColor}
+                  getProgressTextColor={getProgressTextColor}
+                />
               );
             })}
           </div>
         </div>
 
-        {/* Quick Actions */}
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <button 
-            onClick={() => onNavigate('leaderboard')}
-            className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow text-left group"
-          >
-            <div className="flex items-center space-x-3">
-              <div className="p-3 bg-yellow-50 rounded-lg group-hover:bg-yellow-100 transition-colors">
-                <Trophy className="h-6 w-6 text-yellow-600" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900">Leaderboard</h3>
-                <p className="text-sm text-gray-600">Check rankings</p>
-              </div>
-            </div>
-          </button>
-
-          <button 
-            onClick={() => onNavigate('notes')}
-            className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow text-left group"
-          >
-            <div className="flex items-center space-x-3">
-              <div className="p-3 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
-                <BookOpen className="h-6 w-6 text-blue-600" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900">Notes</h3>
-                <p className="text-sm text-gray-600">Study materials</p>
-              </div>
-            </div>
-          </button>
-
-          <button 
-            onClick={() => onNavigate('chat')}
-            className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow text-left group"
-          >
-            <div className="flex items-center space-x-3">
-              <div className="p-3 bg-green-50 rounded-lg group-hover:bg-green-100 transition-colors">
-                <Play className="h-6 w-6 text-green-600" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900">Chat</h3>
-                <p className="text-sm text-gray-600">Join discussions</p>
-              </div>
-            </div>
-          </button>
-
-          <button 
-            onClick={() => onNavigate('premium')}
-            className="bg-gradient-to-r from-yellow-400 to-orange-500 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-left group"
-          >
-            <div className="flex items-center space-x-3">
-              <div className="p-3 bg-white bg-opacity-20 rounded-lg group-hover:bg-opacity-30 transition-colors">
-                <Trophy className="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-white">Go Premium</h3>
-                <p className="text-sm text-yellow-100">Unlock everything</p>
-              </div>
-            </div>
-          </button>
+        {/* Quick Actions - Enhanced mobile layout */}
+        <div className="mt-8">
+          <h3 className="text-xl font-bold text-gray-900 mb-4">Quick Actions</h3>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <ActionButton
+              title="Leaderboard"
+              subtitle="Check rankings"
+              icon={<Trophy className="h-6 w-6 text-yellow-600" />}
+              bgColor="bg-yellow-50"
+              onClick={() => onNavigate('leaderboard')}
+            />
+            <ActionButton
+              title="Notes"
+              subtitle="Study materials"
+              icon={<BookOpen className="h-6 w-6 text-blue-600" />}
+              bgColor="bg-blue-50"
+              onClick={() => onNavigate('notes')}
+            />
+            <ActionButton
+              title="Chat"
+              subtitle="Join discussions"
+              icon={<Play className="h-6 w-6 text-green-600" />}
+              bgColor="bg-green-50"
+              onClick={() => onNavigate('chat')}
+            />
+            {!userProfile.isPremium && (
+              <ActionButton
+                title="Go Premium"
+                subtitle="Unlock everything"
+                icon={<Zap className="h-6 w-6 text-white" />}
+                bgColor="bg-gradient-to-r from-yellow-500 to-orange-600"
+                textColor="text-white"
+                onClick={() => onNavigate('premium')}
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -283,3 +141,172 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 };
 
 export default HomePage;
+
+
+// --- Helper Components for better readability and maintainability ---
+
+// Component for the Quick Stats
+interface StatCardProps {
+  title: string;
+  value: string;
+  icon: React.ReactNode;
+  bgColor: string;
+}
+const StatCard: React.FC<StatCardProps> = ({ title, value, icon, bgColor }) => (
+  <div className="bg-white rounded-xl p-4 shadow-md border border-gray-100 flex items-center justify-between transition-transform duration-200 hover:scale-[1.02]">
+    <div>
+      <p className="text-xs font-medium text-gray-500 truncate">{title}</p>
+      <p className="text-xl sm:text-2xl font-bold text-gray-900 mt-1">
+        {value}
+      </p>
+    </div>
+    <div className={`p-2 ${bgColor} rounded-lg`}>
+      {icon}
+    </div>
+  </div>
+);
+
+// Component for the Subject Card
+interface SubjectCardProps {
+  subject: any; // Ideally, use a proper Subject interface
+  progress: { completed: number; total: number; percentage: number };
+  isAccessible: boolean;
+  questionsCount: number;
+  userProfile: any; // Ideally, use a proper UserProfile interface
+  onNavigate: (page: string, subject?: string) => void;
+  getProgressColor: (percentage: number) => string;
+  getProgressTextColor: (percentage: number) => string;
+}
+const SubjectCard: React.FC<SubjectCardProps> = ({
+  subject,
+  progress,
+  isAccessible,
+  questionsCount,
+  userProfile,
+  onNavigate,
+  getProgressColor,
+  getProgressTextColor,
+}) => (
+  <div
+    key={subject.id}
+    className={`
+      relative bg-white border-2 rounded-xl p-5 sm:p-6 transition-all duration-300 shadow-md h-full flex flex-col
+      ${isAccessible
+        ? 'border-gray-200 hover:border-blue-500 cursor-pointer hover:shadow-lg'
+        : 'border-gray-200 bg-gray-50 opacity-80'
+      }
+    `}
+    onClick={() => isAccessible && onNavigate('subject', subject.name)}
+  >
+    {/* Top Right Badges/Icons */}
+    <div className="absolute top-4 right-4 flex space-x-2">
+      {!isAccessible && (
+        <div className="p-1.5 bg-gray-200 rounded-full shadow-sm">
+          <Lock className="h-4 w-4 text-gray-500" />
+        </div>
+      )}
+      {!subject.isPremium && (
+        <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-semibold">
+          FREE
+        </span>
+      )}
+    </div>
+
+    {/* Subject Icon & Title */}
+    <div className="text-4xl mb-3 mt-1">{subject.icon}</div>
+    <h3 className={`font-extrabold text-xl mb-1 ${isAccessible ? 'text-gray-900' : 'text-gray-500'}`}>
+      {subject.name}
+    </h3>
+    <p className={`text-sm mb-4 flex-grow ${isAccessible ? 'text-gray-600' : 'text-gray-400'}`}>
+      {subject.description}
+    </p>
+
+    {/* Metadata */}
+    <div className="flex items-center space-x-1 mb-4">
+      <Clock className="h-4 w-4 text-gray-400" />
+      <span className="text-sm text-gray-600">{questionsCount} questions</span>
+    </div>
+
+    {/* Progress Bar (Visible when accessible) */}
+    {isAccessible && (
+      <div className="space-y-2 mb-4">
+        <div className="flex justify-between items-center">
+          <span className="text-sm font-medium text-gray-700">Progress</span>
+          <span className={`text-sm font-bold ${getProgressTextColor(progress.percentage)}`}>
+            {progress.percentage}%
+          </span>
+        </div>
+        <div className="w-full bg-gray-200 rounded-full h-2">
+          <div
+            className={`h-2 rounded-full transition-all duration-300 ${getProgressColor(progress.percentage)}`}
+            style={{ width: `${progress.percentage}%` }}
+          />
+        </div>
+        <div className="flex justify-between text-xs text-gray-500">
+          <span>{progress.completed} done</span>
+          <span>{progress.total} total</span>
+        </div>
+      </div>
+    )}
+
+    {/* Action Button - Always at the bottom */}
+    {isAccessible ? (
+      <button className="w-full mt-auto bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2 font-semibold shadow-md">
+        <Play className="h-4 w-4" />
+        <span>Start Learning</span>
+      </button>
+    ) : (
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          onNavigate('premium');
+        }}
+        className="w-full mt-auto bg-yellow-500 text-white py-2 px-4 rounded-lg hover:bg-yellow-600 transition-colors flex items-center justify-center space-x-2 font-semibold shadow-md"
+      >
+        <Lock className="h-4 w-4" />
+        <span>Upgrade to Access</span>
+      </button>
+    )}
+  </div>
+);
+
+// Component for the Quick Action Buttons
+interface ActionButtonProps {
+  title: string;
+  subtitle: string;
+  icon: React.ReactNode;
+  bgColor: string;
+  textColor?: string;
+  onClick: () => void;
+}
+const ActionButton: React.FC<ActionButtonProps> = ({ title, subtitle, icon, bgColor, textColor = 'text-gray-900', onClick }) => (
+  <button
+    onClick={onClick}
+    className={`
+      ${bgColor} p-4 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-all duration-200 text-left group flex items-center space-x-3
+      ${textColor === 'text-white' ? 'border-none' : 'bg-white'}
+    `}
+  >
+    <div className={`p-3 rounded-lg group-hover:opacity-90 transition-colors ${textColor === 'text-white' ? 'bg-white bg-opacity-20' : bgColor}`}>
+      {icon}
+    </div>
+    <div>
+      <h3 className={`font-semibold ${textColor}`}>{title}</h3>
+      <p className={`text-sm ${textColor === 'text-white' ? 'text-yellow-100' : 'text-gray-600'} hidden sm:block`}>{subtitle}</p>
+    </div>
+  </button>
+);
+
+// Component for the Legend
+const Legend: React.FC = () => (
+    <div className="flex items-center space-x-3 text-xs sm:text-sm text-gray-600">
+      <div className="flex items-center space-x-1">
+        <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+        <span>Free</span>
+      </div>
+      <div className="flex items-center space-x-1">
+        <Lock className="h-3 w-3 text-gray-500" />
+        <span>Premium</span>
+      </div>
+    </div>
+);

@@ -18,34 +18,34 @@ export const subjects: Subject[] = [
     description: 'English Language and Literature for Natural Sciences'
   },
   {
-    id: 'coc-health',
-    name: 'COC Health',
+    id: 'math-nat',
+    name: 'Math-Natural science',
     icon: '🏥',
-    field: 'both',
+    field: 'natural',
     isPremium: true,
     description: 'Common Course in Health Sciences'
   },
   {
-    id: 'psychology-nat',
-    name: 'Psychology',
+    id: 'biology-nat',
+    name: 'Biology',
     icon: '🧠',
-    field: 'both',
+    field: 'natural',
     isPremium: true,
     description: 'Psychological Principles and Applications'
   },
   {
-    id: 'logic-nat',
-    name: 'Logic',
+    id: 'chemistry-nat',
+    name: 'Chemistry',
     icon: '🤔',
-    field: 'both',
+    field: 'natural',
     isPremium: true,
     description: 'Logical Reasoning and Critical Thinking'
   },
   {
-    id: 'anthropology-nat',
-    name: 'Anthropology',
+    id: 'physics-nat',
+    name: 'Physics',
     icon: '🏛️',
-    field: 'both',
+    field: 'natural',
     isPremium: false,
     description: 'Study of Human Culture and Society - FREE'
   },
@@ -53,20 +53,20 @@ export const subjects: Subject[] = [
     id: 'geography-nat',
     name: 'Geography',
     icon: '🌍',
-    field: 'both',
+    field: 'social',
     isPremium: false,
     description: 'Physical and Human Geography'
   },
   {
-    id: 'entrepreneurship-nat',
-    name: 'Entrepreneurship',
+    id: 'history-nat',
+    name: 'History',
     icon: '💼',
-    field: 'both',
+    field: 'social',
     isPremium: true,
     description: 'Business Development and Innovation'
   },
   {
-    id: 'inclusive-education-nat',
+    id: '-nat',
     name: 'Inclusive Education',
     icon: '🎓',
     field: 'both',
