@@ -4,6 +4,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import AuthModal from './components/auth/AuthModal';
 import Navbar from './components/layout/Navbar';
 import Sidebar from './components/layout/Sidebar';
+import BottomBar from './components/layout/BottomBar';
 import HomePage from './components/home/HomePage';
 import SubjectPage from './components/subjects/SubjectPage';
 import TestPage from './components/test/TestPage';
@@ -24,6 +25,10 @@ function AppContent() {
   const [currentSubject, setCurrentSubject] = useState<string | null>(null);
   const [testQuestions, setTestQuestions] = useState<Question[]>([]);
   const [testWithTimer, setTestWithTimer] = useState(false);
+
+  // Pages that should show the bottom bar
+  const bottomBarPages = ['home', 'notes', 'chat', 'leaderboard', 'profile'];
+  const showBottomBar = bottomBarPages.includes(currentPage) && currentUser && userProfile;
 
   useEffect(() => {
     if (!loading && !currentUser) {
@@ -66,9 +71,9 @@ function AppContent() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
-            <span className="text-white font-bold text-xl">FH</span>
+            <span className="text-white font-bold text-xl">RH</span>
           </div>
-          <p className="text-gray-600">Loading Fresh-Hub...</p>
+          <p className="text-gray-600">Loading Remedail-Hub...</p>
         </div>
       </div>
     );
@@ -81,7 +86,7 @@ function AppContent() {
           <div className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
             <span className="text-white font-bold text-2xl">FH</span>
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Welcome to RemdialHUb</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Welcome to Remedial-Hub</h1>
           <p className="text-xl text-gray-600 mb-8">Your Ultimate Exam Preparation Platform</p>
           <div className="space-x-4">
             <button
@@ -167,9 +172,17 @@ function AppContent() {
         onNavigate={handleNavigation}
       />
 
-      <main>
+      <main className={showBottomBar ? 'pb-20 safe-area-bottom' : ''}>
         {renderPage()}
       </main>
+
+      {/* Bottom Navigation Bar */}
+      {showBottomBar && (
+        <BottomBar 
+          currentPage={currentPage}
+          onNavigate={handleNavigation}
+        />
+      )}
 
       <AuthModal
         isOpen={showAuthModal}
