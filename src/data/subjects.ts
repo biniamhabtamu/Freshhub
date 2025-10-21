@@ -13,7 +13,7 @@ export const subjects: Subject[] = [
     id: 'english-nat',
     name: 'English',
     icon: '📚',
-    field: 'natural',
+    field: 'both',
     isPremium: true,
     description: 'English Language and Literature for Natural Sciences'
   },
@@ -21,7 +21,7 @@ export const subjects: Subject[] = [
     id: 'coc-health',
     name: 'COC Health',
     icon: '🏥',
-    field: 'natural',
+    field: 'both',
     isPremium: true,
     description: 'Common Course in Health Sciences'
   },
@@ -29,7 +29,7 @@ export const subjects: Subject[] = [
     id: 'psychology-nat',
     name: 'Psychology',
     icon: '🧠',
-    field: 'natural',
+    field: 'both',
     isPremium: true,
     description: 'Psychological Principles and Applications'
   },
@@ -37,7 +37,7 @@ export const subjects: Subject[] = [
     id: 'logic-nat',
     name: 'Logic',
     icon: '🤔',
-    field: 'natural',
+    field: 'both',
     isPremium: true,
     description: 'Logical Reasoning and Critical Thinking'
   },
@@ -53,15 +53,15 @@ export const subjects: Subject[] = [
     id: 'geography-nat',
     name: 'Geography',
     icon: '🌍',
-    field: 'natural',
-    isPremium: true,
+    field: 'both',
+    isPremium: false,
     description: 'Physical and Human Geography'
   },
   {
     id: 'entrepreneurship-nat',
     name: 'Entrepreneurship',
     icon: '💼',
-    field: 'natural',
+    field: 'both',
     isPremium: true,
     description: 'Business Development and Innovation'
   },
@@ -69,7 +69,7 @@ export const subjects: Subject[] = [
     id: 'inclusive-education-nat',
     name: 'Inclusive Education',
     icon: '🎓',
-    field: 'natural',
+    field: 'both',
     isPremium: true,
     description: 'Special Needs and Inclusive Learning'
   },
@@ -77,7 +77,7 @@ export const subjects: Subject[] = [
     id: 'cpp-nat',
     name: 'C++',
     icon: '💻',
-    field: 'natural',
+    field: 'both',
     isPremium: true,
     description: 'C++ Programming Language'
   },
@@ -85,7 +85,7 @@ export const subjects: Subject[] = [
     id: 'civic-nat',
     name: 'Civic',
     icon: '🏛️',
-    field: 'natural',
+    field: 'both',
     isPremium: true,
     description: 'Civic Education and Citizenship'
   },
@@ -93,7 +93,7 @@ export const subjects: Subject[] = [
     id: 'economics-nat',
     name: 'Economics',
     icon: '📈',
-    field: 'natural',
+    field: 'both',
     isPremium: true,
     description: 'Economic Principles and Theory'
   },
@@ -101,7 +101,7 @@ export const subjects: Subject[] = [
     id: 'emerging-nat',
     name: 'Emerging',
     icon: '🌟',
-    field: 'natural',
+    field: 'both',
     isPremium: true,
     description: 'Emerging Technologies and Trends'
   },
