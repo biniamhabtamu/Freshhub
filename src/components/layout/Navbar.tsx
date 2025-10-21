@@ -90,8 +90,8 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle, onProfileClick }) => {
               
               <div>
                 {/* Font-serif for a more unique, non-standard look */}
-                <h1 className="text-xl sm:text-2xl font-serif font-extrabold text-gray-900 leading-tight">The Study Almanac</h1>
-                <p className="text-sm text-gray-500 hidden sm:block">Knowledge Hub</p>
+                <h1 className="text-xl sm:text-2xl font-serif font-extrabold text-gray-900 leading-tight">Remedial HUb</h1>
+                <p className="text-sm text-gray-500 hidden sm:block"> </p>
               </div>
             </div>
           </div>
