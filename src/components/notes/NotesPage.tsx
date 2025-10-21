@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Download, FileText, Lock, Search, Filter, X, Zap } from 'lucide-react';
+import { Download, FileText, Lock, Search, Filter, X, Zap, BookOpen } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { Note } from '../../types';
 
@@ -96,31 +96,31 @@ const NotesPage: React.FC = () => {
     alert(`Downloading ${note.title}...`);
   };
 
-  // Enhanced icons for a more visual appeal
+  // Emojis for a "human" touch
   const getFileIcon = (fileType: string) => {
     switch (fileType) {
       case 'pdf':
-        return '📑'; // Larger and clearer visual
+        return '📚'; 
       case 'ppt':
-        return '📈';
+        return '💡';
       case 'doc':
-        return '✍️';
+        return '📝';
       default:
         return '📄';
     }
   };
 
-  // Cleaner, more contrasting colors
+  // Warmer, unique color palette
   const getFileTypeColor = (fileType: string) => {
     switch (fileType) {
       case 'pdf':
-        return 'bg-rose-50 text-rose-600 ring-rose-200';
+        return 'bg-red-50 text-red-700 border-red-200';
       case 'ppt':
-        return 'bg-amber-50 text-amber-600 ring-amber-200';
+        return 'bg-teal-50 text-teal-700 border-teal-200';
       case 'doc':
-        return 'bg-sky-50 text-sky-600 ring-sky-200';
+        return 'bg-indigo-50 text-indigo-700 border-indigo-200';
       default:
-        return 'bg-gray-50 text-gray-600 ring-gray-200';
+        return 'bg-gray-100 text-gray-700 border-gray-200';
     }
   };
 
@@ -130,102 +130,103 @@ const NotesPage: React.FC = () => {
 
 
   return (
-    // Updated background for a subtle gradient effect
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-100/50 pt-4 pb-16">
+    // Creamy/Warm background gradient
+    <div className="min-h-screen bg-gradient-to-br from-white to-orange-50/70 pt-8 pb-20">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         
         {/* Header */}
-        <header className="text-center mb-10 lg:mb-16">
-          <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl">
-            <FileText className="h-10 w-10 text-white" />
+        <header className="text-center mb-12 lg:mb-16">
+          <div className="w-20 h-20 bg-gradient-to-tr from-teal-500 to-green-500 rounded-[2rem] flex items-center justify-center mx-auto mb-4 shadow-xl shadow-teal-500/30">
+            <BookOpen className="h-10 w-10 text-white" />
           </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-2 tracking-tight">
-            Knowledge Hub <span className="text-blue-600">Notes</span>
+          <h1 className="text-4xl sm:text-5xl font-serif font-extrabold text-gray-900 mb-2 tracking-tight">
+            The Study Almanac
           </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-            Find, filter, and download high-quality study materials across all your subjects.
+          <p className="text-lg sm:text-xl font-light text-gray-600 max-w-3xl mx-auto">
+            Hand-curated knowledge notes to elevate your learning journey.
           </p>
         </header>
 
-        {/* Search Bar - Sticky on Mobile with a modern floating appearance */}
-        <div className="sticky top-0 z-20 py-3 lg:py-0 lg:static mb-8">
-          <div className="bg-white rounded-xl shadow-2xl shadow-blue-200/50 border border-gray-100 p-4 lg:p-0 lg:shadow-none lg:border-none">
-            <div className="flex items-center space-x-3">
-              {/* Search Input */}
-              <div className="relative flex-grow">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                <input
-                  type="text"
-                  placeholder="Search for notes (e.g., Logic, Grammar, features...)"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl bg-gray-50 focus:ring-4 focus:ring-blue-500/50 focus:border-blue-500 transition duration-200 text-base"
-                />
-              </div>
+        {/* Search & Filter Section (Distinct Card) */}
+        <div className="bg-white rounded-[2.5rem] p-4 lg:p-6 shadow-2xl shadow-gray-200/50 mb-10 border border-gray-100">
+            {/* Search Bar - Sticky on Mobile with a modern floating appearance */}
+            <div className="sticky top-4 z-20 py-1 lg:py-0 lg:static">
+                <div className="flex items-center space-x-3">
+                    {/* Search Input */}
+                    <div className="relative flex-grow">
+                        <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                        <input
+                        type="text"
+                        placeholder="Search by topic or keyword..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="w-full pl-12 pr-4 py-3 border border-gray-200 rounded-full bg-white text-gray-800 focus:ring-4 focus:ring-teal-500/30 focus:border-teal-500 transition duration-200 text-base shadow-inner"
+                        />
+                    </div>
 
-              {/* Mobile Filter Button */}
-              <button
-                onClick={() => setIsFilterOpen(true)}
-                className="lg:hidden p-3 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-700 transition duration-150 active:scale-95"
-                aria-label="Open Filters"
-              >
-                <Filter className="h-6 w-6" />
-              </button>
+                    {/* Mobile Filter Button */}
+                    <button
+                        onClick={() => setIsFilterOpen(true)}
+                        className="lg:hidden p-4 bg-teal-600 text-white rounded-full shadow-lg hover:bg-teal-700 transition duration-150 active:scale-95"
+                        aria-label="Open Filters"
+                    >
+                        <Filter className="h-6 w-6" />
+                    </button>
+                </div>
             </div>
-          </div>
+
+            {/* Desktop Filters (Always visible, clean pill style) */}
+            <div className="hidden lg:grid grid-cols-1 md:grid-cols-4 gap-6 pt-4">
+                <h2 className="md:col-span-1 text-lg font-bold text-gray-700 flex items-center">
+                    <Filter className="h-5 w-5 mr-3 text-teal-600" />
+                    Refine By:
+                </h2>
+                {/* Subject Filter */}
+                <select
+                    value={selectedSubject}
+                    onChange={(e) => setSelectedSubject(e.target.value)}
+                    className="w-full py-3 px-4 border border-gray-200 rounded-xl bg-white shadow-sm appearance-none cursor-pointer text-gray-700 hover:border-teal-400 transition"
+                >
+                    {subjects.map((subject) => (
+                    <option key={subject} value={subject}>
+                        {subject === 'all' ? 'All Subjects' : subject}
+                    </option>
+                    ))}
+                </select>
+
+                {/* File Type Filter */}
+                <select
+                    value={selectedType}
+                    onChange={(e) => setSelectedType(e.target.value)}
+                    className="w-full py-3 px-4 border border-gray-200 rounded-xl bg-white shadow-sm appearance-none cursor-pointer text-gray-700 hover:border-teal-400 transition"
+                >
+                    {fileTypes.map((type) => (
+                    <option key={type} value={type}>
+                        {type === 'all' ? 'All Types' : type.toUpperCase()}
+                    </option>
+                    ))}
+                </select>
+                <div className="hidden md:block"></div> {/* Spacer */}
+            </div>
         </div>
 
-        {/* Desktop Filters (Always visible, clean card style) */}
-        <div className="hidden lg:grid grid-cols-1 md:grid-cols-4 gap-4 bg-white rounded-2xl shadow-xl border border-blue-100 p-6 mb-10">
-          <h2 className="md:col-span-1 text-xl font-bold text-gray-800 flex items-center">
-            <Filter className="h-6 w-6 mr-3 text-blue-600" />
-            Quick Filters
-          </h2>
-          {/* Subject Filter */}
-          <select
-            value={selectedSubject}
-            onChange={(e) => setSelectedSubject(e.target.value)}
-            className="w-full py-3 px-4 border border-blue-300 rounded-xl focus:ring-4 focus:ring-blue-500/50 focus:border-blue-500 bg-white shadow-sm appearance-none cursor-pointer text-gray-700"
-          >
-            {subjects.map((subject) => (
-              <option key={subject} value={subject}>
-                {subject === 'all' ? 'All Subjects' : subject}
-              </option>
-            ))}
-          </select>
 
-          {/* File Type Filter */}
-          <select
-            value={selectedType}
-            onChange={(e) => setSelectedType(e.target.value)}
-            className="w-full py-3 px-4 border border-blue-300 rounded-xl focus:ring-4 focus:ring-blue-500/50 focus:border-blue-500 bg-white shadow-sm appearance-none cursor-pointer text-gray-700"
-          >
-            {fileTypes.map((type) => (
-              <option key={type} value={type}>
-                {type === 'all' ? 'All Types' : type.toUpperCase()}
-              </option>
-            ))}
-          </select>
-          <div className="hidden md:block"></div> {/* Spacer */}
-        </div>
-
-
-        {/* Premium Notice (More prominent and action-oriented) */}
+        {/* Premium Notice (Warm, inviting, and clearly actionable) */}
         {!userProfile?.isPremium && (
-          <div className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-3xl p-6 lg:p-8 mb-10 shadow-2xl shadow-purple-300/50 transform hover:scale-[1.01] transition duration-300 ease-in-out">
+          <div className="bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-3xl p-6 lg:p-8 mb-12 shadow-2xl shadow-orange-300/50 transform hover:scale-[1.005] transition duration-300 ease-in-out">
             <div className="flex flex-col md:flex-row items-center justify-between">
               <div className="flex items-center mb-4 md:mb-0">
-                <Zap className="h-8 w-8 text-yellow-300 mr-4 flex-shrink-0" />
+                <Zap className="h-8 w-8 text-yellow-100 mr-4 flex-shrink-0" />
                 <div>
-                  <h2 className="text-2xl font-extrabold mb-1">Go Premium, Get Ahead!</h2>
-                  <p className="text-indigo-100 text-sm md:text-base">
-                    Unlock all premium resources and study with zero limits.
+                  <h2 className="text-2xl font-extrabold mb-1">Unlock <span className='text-yellow-100'>Full Access</span> 🚀</h2>
+                  <p className="text-orange-100 text-sm md:text-base">
+                    Upgrade to Premium for unlimited downloads and exclusive notes.
                   </p>
                 </div>
               </div>
-              <button className="flex items-center space-x-2 bg-yellow-400 text-gray-900 font-bold py-3 px-6 rounded-full hover:bg-yellow-300 transition duration-150 shadow-lg whitespace-nowrap w-full md:w-auto">
+              <button className="flex items-center space-x-2 bg-white text-orange-600 font-bold py-3 px-6 rounded-full hover:bg-gray-100 transition duration-150 shadow-lg whitespace-nowrap w-full md:w-auto">
                 <Lock className="h-5 w-5" />
-                <span>Activate Premium</span>
+                <span>Get Premium</span>
               </button>
             </div>
           </div>
@@ -239,10 +240,10 @@ const NotesPage: React.FC = () => {
             return (
               <div
                 key={note.id}
-                // Updated card style: subtle glassmorphism effect, sharper corners, and vibrant hover
-                className={`bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl border border-gray-100 p-6 flex flex-col transition-all duration-300 ${
+                // Humanized card style: Creamy background, soft border, lifted shadow on hover
+                className={`bg-white rounded-[2rem] shadow-xl border border-gray-100 p-6 flex flex-col transition-all duration-300 ${
                   isAccessible 
-                    ? 'hover:shadow-2xl hover:border-blue-300/70 hover:scale-[1.02]' 
+                    ? 'hover:shadow-2xl hover:shadow-teal-100/50 hover:border-teal-200/50 hover:scale-[1.01]' 
                     : 'opacity-70 grayscale cursor-default'
                 }`}
               >
@@ -250,11 +251,11 @@ const NotesPage: React.FC = () => {
                 <div className="flex items-start justify-between mb-4">
                   <div className="text-5xl leading-none mr-4">{getFileIcon(note.fileType)}</div>
                   <div className="flex flex-col items-end space-y-1">
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ring-1 ${getFileTypeColor(note.fileType)}`}>
+                    <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${getFileTypeColor(note.fileType)}`}>
                       {note.fileType.toUpperCase()}
                     </span>
                     {note.isPremium && (
-                      <div className="flex items-center space-x-1 p-1 pr-2 bg-yellow-100 rounded-full border border-yellow-300">
+                      <div className="flex items-center space-x-1 p-1 pr-2 bg-yellow-50 rounded-full border border-yellow-300 shadow-sm">
                         <Lock className="h-3 w-3 text-yellow-700" />
                         <span className="text-xs font-medium text-yellow-800">PREMIUM</span>
                       </div>
@@ -263,24 +264,24 @@ const NotesPage: React.FC = () => {
                 </div>
 
                 {/* Title and Description */}
-                <h3 className="font-extrabold text-xl text-gray-900 mb-2">{note.title}</h3>
+                <h3 className="font-serif font-extrabold text-xl text-gray-900 mb-2">{note.title}</h3>
                 <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">{note.description}</p>
 
                 {/* Footer: Subject and Size */}
                 <div className="flex items-center justify-between border-t border-gray-100 pt-4 mb-4">
-                  <span className="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full font-medium border border-blue-200 shadow-inner">
+                  <span className="bg-teal-100 text-teal-800 text-xs px-3 py-1 rounded-full font-semibold border border-teal-200">
                     {note.subject}
                   </span>
-                  <span className="text-sm text-gray-500 font-semibold">{note.fileSize}</span>
+                  <span className="text-sm text-gray-500 font-medium">{note.fileSize}</span>
                 </div>
 
                 {/* Download Button */}
                 <button
                   onClick={() => handleDownload(note)}
                   disabled={!isAccessible}
-                  className={`w-full py-3 px-4 rounded-xl font-bold transition-colors flex items-center justify-center space-x-2 shadow-lg active:scale-[0.99] ${
+                  className={`w-full py-3 px-4 rounded-full font-bold transition-colors flex items-center justify-center space-x-2 shadow-lg active:scale-[0.98] ${
                     isAccessible
-                      ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-blue-500/50'
+                      ? 'bg-teal-600 text-white hover:bg-teal-700 shadow-teal-500/40'
                       : 'bg-gray-300 text-gray-600 cursor-not-allowed shadow-none'
                   }`}
                 >
@@ -305,44 +306,44 @@ const NotesPage: React.FC = () => {
         {filteredNotes.length === 0 && (
           <div className="text-center py-20 bg-white rounded-3xl mt-10 shadow-xl border border-gray-100">
             <FileText className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-2xl font-semibold text-gray-900 mb-2">No notes found</h3>
+            <h3 className="text-2xl font-serif font-semibold text-gray-900 mb-2">No notes found</h3>
             <p className="text-gray-600">
               Try simplifying your search or checking other categories.
             </p>
           </div>
         )}
 
-        {/* Statistics */}
-        <div className="mt-16 bg-white rounded-3xl shadow-2xl border border-gray-100 p-6 lg:p-10">
-          <h2 className="text-2xl font-extrabold text-gray-900 mb-6 border-b border-blue-200 pb-4">Study Metrics</h2>
+        {/* Statistics (Subtle and informative) */}
+        <div className="mt-16 bg-white rounded-3xl shadow-xl border border-gray-100 p-6 lg:p-10">
+          <h2 className="text-2xl font-serif font-bold text-gray-900 mb-6 border-b border-teal-200 pb-4">Almanac at a Glance</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center p-4 border rounded-xl bg-blue-50 border-blue-300/50">
-              <div className="text-4xl font-extrabold text-blue-600">{notes.length}</div>
+            <div className="text-center p-4 border rounded-xl bg-teal-50 border-teal-300/50">
+              <div className="text-4xl font-extrabold text-teal-700">{notes.length}</div>
               <div className="text-sm text-gray-600 mt-1 font-medium">Total Notes</div>
             </div>
             <div className="text-center p-4 border rounded-xl bg-green-50 border-green-300/50">
-              <div className="text-4xl font-extrabold text-green-600">
+              <div className="text-4xl font-extrabold text-green-700">
                 {notes.filter(n => !n.isPremium).length}
               </div>
-              <div className="text-sm text-gray-600 mt-1 font-medium">Free Notes</div>
+              <div className="text-sm text-gray-600 mt-1 font-medium">Free Resources</div>
             </div>
             <div className="text-center p-4 border rounded-xl bg-yellow-50 border-yellow-300/50">
-              <div className="text-4xl font-extrabold text-yellow-600">
+              <div className="text-4xl font-extrabold text-yellow-700">
                 {notes.filter(n => n.isPremium).length}
               </div>
-              <div className="text-sm text-gray-600 mt-1 font-medium">Premium Notes</div>
+              <div className="text-sm text-gray-600 mt-1 font-medium">Exclusive Content</div>
             </div>
             <div className="text-center p-4 border rounded-xl bg-purple-50 border-purple-300/50">
-              <div className="text-4xl font-extrabold text-purple-600">
+              <div className="text-4xl font-extrabold text-purple-700">
                 {[...new Set(notes.map(n => n.subject))].length}
               </div>
-              <div className="text-sm text-gray-600 mt-1 font-medium">Subjects Covered</div>
+              <div className="text-sm text-gray-600 mt-1 font-medium">Disciplines Covered</div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* --- Mobile Filter Modal (Highly visible, right-slide panel) --- */}
+      {/* --- Mobile Filter Modal (Soft slide-out panel) --- */}
       <div
         className={`fixed inset-0 z-50 transform transition-transform duration-300 ease-in-out ${
           isFilterOpen ? 'translate-x-0' : 'translate-x-full'
@@ -354,11 +355,11 @@ const NotesPage: React.FC = () => {
         )}
 
         {/* Modal Content */}
-        <div className="absolute top-0 right-0 w-full max-w-sm h-full bg-white shadow-2xl p-6 flex flex-col">
+        <div className="absolute top-0 right-0 w-full max-w-sm h-full bg-white shadow-2xl p-6 flex flex-col rounded-l-3xl">
           {/* Header */}
           <div className="flex justify-between items-center pb-4 border-b border-gray-200 mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 flex items-center">
-              <Filter className="h-6 w-6 mr-2 text-blue-600" /> Filter Options
+            <h2 className="text-2xl font-serif font-bold text-gray-900 flex items-center">
+              <Filter className="h-6 w-6 mr-2 text-teal-600" /> Filter Options
             </h2>
             <button
               onClick={() => setIsFilterOpen(false)}
@@ -379,7 +380,7 @@ const NotesPage: React.FC = () => {
                 id="mobile-subject"
                 value={selectedSubject}
                 onChange={(e) => setSelectedSubject(e.target.value)}
-                className="w-full py-3 px-4 border border-blue-300 rounded-xl focus:ring-blue-500 focus:border-blue-500 bg-white shadow-sm"
+                className="w-full py-3 px-4 border border-gray-200 rounded-xl focus:ring-teal-500 focus:border-teal-500 bg-white shadow-sm"
               >
                 {subjects.map((subject) => (
                   <option key={subject} value={subject}>
@@ -398,7 +399,7 @@ const NotesPage: React.FC = () => {
                 id="mobile-type"
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
-                className="w-full py-3 px-4 border border-blue-300 rounded-xl focus:ring-blue-500 focus:border-blue-500 bg-white shadow-sm"
+                className="w-full py-3 px-4 border border-gray-200 rounded-xl focus:ring-teal-500 focus:border-teal-500 bg-white shadow-sm"
               >
                 {fileTypes.map((type) => (
                   <option key={type} value={type}>
@@ -413,7 +414,7 @@ const NotesPage: React.FC = () => {
           <div className="pt-6 border-t border-gray-200">
             <button
               onClick={handleMobileFilterSubmit}
-              className="w-full py-3 bg-blue-600 text-white font-bold rounded-xl shadow-lg hover:bg-blue-700 transition duration-150"
+              className="w-full py-3 bg-teal-600 text-white font-bold rounded-full shadow-lg hover:bg-teal-700 transition duration-150"
             >
               Show Results
             </button>
