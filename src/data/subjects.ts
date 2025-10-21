@@ -66,10 +66,10 @@ export const subjects: Subject[] = [
     description: 'Business Development and Innovation'
   },
   {
-    id: '-nat',
-    name: 'Inclusive Education',
+    id: 'mathsocial-nat',
+    name: 'math-social',
     icon: '🎓',
-    field: 'both',
+    field: 'social',
     isPremium: true,
     description: 'Special Needs and Inclusive Learning'
   },
