@@ -30,12 +30,11 @@ const TutorialPage: React.FC<TutorialPageProps> = ({ onNavigate }) => {
     {
       id: 'live',
       title: 'Live Tutorials',
-      description: 'Join scheduled, interactive learning sessions with expert instructors and real-time Q&A.',
+      description: 'Interactive sessions with expert instructors',
       icon: Zap,
       gradient: 'from-red-500 to-pink-600',
       bgGradient: 'from-red-50 to-pink-50',
       borderColor: 'border-red-200',
-      actionLabel: 'View Schedule',
       targetPage: 'live-tutorials',
       stats: '12 sessions this week',
       featured: true
@@ -43,14 +42,13 @@ const TutorialPage: React.FC<TutorialPageProps> = ({ onNavigate }) => {
     {
       id: 'video',
       title: 'Video Library',
-      description: 'Access a vast collection of on-demand recorded video lessons across all subjects.',
+      description: 'On-demand recorded video lessons',
       icon: PlayCircle,
       gradient: 'from-blue-500 to-indigo-600',
       bgGradient: 'from-blue-50 to-indigo-50',
       borderColor: 'border-blue-200',
-      actionLabel: 'Browse Videos',
       targetPage: 'video-tutorials',
-      stats: '1,500+ videos available',
+      stats: '1,500+ videos',
       featured: false
     },
   ];
@@ -61,11 +59,9 @@ const TutorialPage: React.FC<TutorialPageProps> = ({ onNavigate }) => {
       title: 'Thermodynamics Basics',
       subject: 'Physics',
       duration: '45 min',
-      level: 'Beginner',
       progress: 65,
       instructor: 'Dr. Sarah Chen',
       rating: 4.8,
-      students: 1247,
       thumbnail: '🔥',
       isPremium: false
     },
@@ -74,11 +70,9 @@ const TutorialPage: React.FC<TutorialPageProps> = ({ onNavigate }) => {
       title: 'Calculus Fundamentals',
       subject: 'Mathematics',
       duration: '1h 20min',
-      level: 'Intermediate',
       progress: 30,
       instructor: 'Prof. Michael Torres',
       rating: 4.9,
-      students: 892,
       thumbnail: '📊',
       isPremium: true
     },
@@ -87,11 +81,9 @@ const TutorialPage: React.FC<TutorialPageProps> = ({ onNavigate }) => {
       title: 'Organic Chemistry',
       subject: 'Chemistry',
       duration: '55 min',
-      level: 'Advanced',
       progress: 0,
       instructor: 'Dr. Emily Watson',
       rating: 4.7,
-      students: 567,
       thumbnail: '🧪',
       isPremium: false
     }
@@ -103,18 +95,14 @@ const TutorialPage: React.FC<TutorialPageProps> = ({ onNavigate }) => {
       title: 'Quantum Mechanics Intro',
       time: 'Today, 3:00 PM',
       instructor: 'Dr. James Wilson',
-      attendees: 47,
       subject: 'Physics',
-      duration: '60 min'
     },
     {
       id: 'live2',
       title: 'Statistical Analysis',
       time: 'Tomorrow, 10:00 AM',
       instructor: 'Prof. Lisa Park',
-      attendees: 23,
       subject: 'Mathematics',
-      duration: '45 min'
     }
   ];
 
@@ -127,44 +115,42 @@ const TutorialPage: React.FC<TutorialPageProps> = ({ onNavigate }) => {
     gradient: string,
     trend?: string 
   }) => (
-    <div className={`flex-shrink-0 w-36 sm:w-44 bg-gradient-to-br ${gradient} p-4 rounded-2xl shadow-lg border border-gray-100/50 backdrop-blur-sm transform hover:scale-105 transition-all duration-300 cursor-pointer`}>
-      <div className="flex flex-col space-y-3">
+    <div className={`flex-shrink-0 w-32 bg-gradient-to-br ${gradient} p-3 rounded-xl shadow-lg border border-gray-100/50 backdrop-blur-sm transform hover:scale-105 transition-all duration-300 cursor-pointer`}>
+      <div className="flex flex-col space-y-2">
         <div className="flex items-center justify-between">
-          <div className={`p-2 rounded-xl bg-white/20 backdrop-blur-sm shadow-inner`}>
-            <Icon className={`h-5 w-5 ${color}`} />
+          <div className={`p-1.5 rounded-lg bg-white/20 backdrop-blur-sm`}>
+            <Icon className={`h-4 w-4 ${color}`} />
           </div>
           {trend && (
-            <div className="flex items-center space-x-1 bg-white/30 rounded-full px-2 py-1">
-              <TrendingUp className="h-3 w-3 text-green-600" />
+            <div className="flex items-center space-x-1 bg-white/30 rounded-full px-1.5 py-0.5">
+              <TrendingUp className="h-2.5 w-2.5 text-green-600" />
               <span className="text-xs font-bold text-green-700">{trend}</span>
             </div>
           )}
         </div>
-        <p className="text-sm font-semibold text-gray-700">{title}</p>
-        <p className="text-2xl font-bold text-gray-900">{value}</p>
+        <p className="text-xs font-semibold text-gray-700">{title}</p>
+        <p className="text-lg font-bold text-gray-900">{value}</p>
       </div>
     </div>
   );
 
   const CourseCard = ({ course }: { course: typeof featuredCourses[0] }) => (
-    <div className="bg-white rounded-2xl p-4 shadow-lg border border-gray-200/50 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] cursor-pointer group">
-      <div className="flex items-start space-x-4">
-        <div className="text-3xl bg-gradient-to-br from-blue-100 to-indigo-100 p-3 rounded-2xl">
+    <div className="bg-white rounded-xl p-3 shadow-lg border border-gray-200/50 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] cursor-pointer group">
+      <div className="flex items-start space-x-3">
+        <div className="text-2xl bg-gradient-to-br from-blue-100 to-indigo-100 p-2 rounded-xl">
           {course.thumbnail}
         </div>
         <div className="flex-1 min-w-0">
-          <div className="flex items-start justify-between mb-2">
-            <h3 className="font-bold text-gray-900 text-sm leading-tight">{course.title}</h3>
+          <div className="flex items-start justify-between mb-1">
+            <h3 className="font-bold text-gray-900 text-sm leading-tight line-clamp-2">{course.title}</h3>
             {course.isPremium && (
-              <Crown className="h-4 w-4 text-yellow-500 fill-current" />
+              <Crown className="h-3 w-3 text-yellow-500 fill-current flex-shrink-0 ml-1" />
             )}
           </div>
-          <p className="text-xs text-gray-600 mb-2">{course.subject} • {course.duration}</p>
-          <div className="flex items-center space-x-2 text-xs text-gray-500 mb-3">
+          <p className="text-xs text-gray-600 mb-1">{course.subject} • {course.duration}</p>
+          <div className="flex items-center space-x-1 text-xs text-gray-500 mb-2">
             <Star className="h-3 w-3 text-yellow-500 fill-current" />
             <span>{course.rating}</span>
-            <Users className="h-3 w-3 text-blue-500" />
-            <span>{course.students.toLocaleString()}</span>
           </div>
           {course.progress > 0 ? (
             <div className="space-y-1">
@@ -180,7 +166,7 @@ const TutorialPage: React.FC<TutorialPageProps> = ({ onNavigate }) => {
               </div>
             </div>
           ) : (
-            <button className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-xs font-semibold py-2 rounded-xl hover:shadow-lg transition-all duration-200">
+            <button className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-xs font-semibold py-1.5 rounded-lg hover:shadow-lg transition-all duration-200">
               Start Learning
             </button>
           )}
@@ -190,95 +176,85 @@ const TutorialPage: React.FC<TutorialPageProps> = ({ onNavigate }) => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/20 pb-24">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/20 pb-20">
       
-      {/* Enhanced Sticky Header */}
-      <div className="sticky top-0 z-20 bg-white/80 backdrop-blur-lg p-6 border-b border-gray-200/50 shadow-sm lg:static lg:bg-transparent lg:shadow-none lg:border-none lg:p-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-gray-800 to-gray-900 bg-clip-text text-transparent">
-                Welcome back, {userProfile?.name?.split(' ')[0] || 'Learner'}! 👋
-              </h1>
-              <p className="text-lg text-gray-600 mt-2 hidden sm:block">
-                Continue your learning journey with <span className="font-semibold text-blue-600">live sessions</span> and <span className="font-semibold text-purple-600">video tutorials</span>
-              </p>
-            </div>
-            {userProfile?.streak && (
-              <div className="hidden lg:flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white px-4 py-2 rounded-2xl shadow-lg">
-                <Sparkles className="h-4 w-4" />
-                <span className="font-bold">{userProfile.streak} day streak</span>
-              </div>
-            )}
+      {/* Enhanced Mobile-First Header */}
+      <div className="sticky top-0 z-20 bg-white/90 backdrop-blur-lg p-4 border-b border-gray-200/50 shadow-sm">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-900 bg-clip-text text-transparent">
+              Welcome, {userProfile?.name?.split(' ')[0] || 'Learner'}! 👋
+            </h1>
+            <p className="text-sm text-gray-600 mt-1">
+              Continue your learning journey
+            </p>
           </div>
+          {userProfile?.streak && (
+            <div className="flex items-center space-x-1 bg-gradient-to-r from-orange-500 to-amber-500 text-white px-3 py-1.5 rounded-xl shadow-lg">
+              <Sparkles className="h-3 w-3" />
+              <span className="font-bold text-sm">{userProfile.streak}</span>
+            </div>
+          )}
         </div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <div className="max-w-7xl mx-auto px-4 pt-4">
 
-        {/* Enhanced Primary Action Tiles */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
+        {/* Enhanced Primary Action Tiles - Mobile Optimized */}
+        <div className="grid grid-cols-1 gap-4 mb-8">
           {primaryActions.map((action) => (
             <button
               key={action.id}
               onClick={() => onNavigate(action.targetPage)}
               className={`
-                w-full text-left bg-gradient-to-br ${action.bgGradient} rounded-3xl p-6 shadow-xl overflow-hidden relative 
-                transform transition-all duration-500 hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-opacity-50
-                hover:shadow-2xl group border-2 ${action.borderColor}
-                ${action.featured ? 'ring-2 ring-yellow-400/30' : ''}
+                w-full text-left bg-gradient-to-br ${action.bgGradient} rounded-2xl p-4 shadow-lg overflow-hidden relative 
+                transform transition-all duration-300 hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-opacity-50
+                hover:shadow-xl group border ${action.borderColor}
+                ${action.featured ? 'ring-1 ring-yellow-400/30' : ''}
               `}
             >
-              {/* Animated Background Elements */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full transform translate-x-1/2 -translate-y-1/2" />
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full transform -translate-x-1/2 translate-y-1/2" />
-              
               <div className="relative z-10">
-                <div className="flex items-start justify-between mb-4">
-                  <div className={`p-3 rounded-2xl bg-white shadow-lg border border-gray-100 transform group-hover:scale-110 transition-transform duration-300`}>
-                    <action.icon className={`h-7 w-7 bg-gradient-to-r ${action.gradient} bg-clip-text text-transparent`} />
+                <div className="flex items-start justify-between mb-3">
+                  <div className={`p-2 rounded-xl bg-white shadow border border-gray-100 transform group-hover:scale-105 transition-transform duration-300`}>
+                    <action.icon className={`h-5 w-5 bg-gradient-to-r ${action.gradient} bg-clip-text text-transparent`} />
                   </div>
                   {action.featured && (
-                    <div className="flex items-center space-x-1 bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-bold">
-                      <Zap className="h-3 w-3 fill-current" />
+                    <div className="flex items-center space-x-1 bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full text-xs font-bold">
+                      <Zap className="h-2.5 w-2.5 fill-current" />
                       <span>FEATURED</span>
                     </div>
                   )}
                 </div>
                 
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">{action.title}</h2>
-                <p className="text-gray-600 mb-3 leading-relaxed">{action.description}</p>
-                <p className="text-sm font-semibold text-gray-700 mb-6">{action.stats}</p>
+                <h2 className="text-lg font-bold text-gray-900 mb-1">{action.title}</h2>
+                <p className="text-sm text-gray-600 mb-2 leading-relaxed">{action.description}</p>
+                <p className="text-xs font-semibold text-gray-700 mb-3">{action.stats}</p>
               </div>
 
               {/* Enhanced Call to Action */}
               <div className={`
-                relative z-10 py-4 px-6 
+                relative z-10 py-2 px-3 
                 bg-gradient-to-r ${action.gradient} text-white font-bold 
-                flex items-center justify-between rounded-2xl
-                transition-all duration-300 group-hover:shadow-2xl transform group-hover:translate-y-[-2px]
-                shadow-lg
+                flex items-center justify-between rounded-xl
+                transition-all duration-300 group-hover:shadow-lg
+                shadow-md text-sm
               `}>
-                <span className="text-sm">{action.actionLabel}</span>
-                <div className="flex items-center space-x-1">
-                  <span className="text-xs opacity-90">Explore</span>
-                  <ChevronRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                </div>
+                <span>Explore Now</span>
+                <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </div>
             </button>
           ))}
         </div>
 
-        {/* Enhanced Quick Stats Section */}
-        <div className="mb-12">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 flex items-center">
-              <Target className="h-6 w-6 mr-3 text-blue-500" />
+        {/* Enhanced Quick Stats Section - Horizontal Scroll */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-bold text-gray-900 flex items-center">
+              <Target className="h-4 w-4 mr-2 text-blue-500" />
               Learning Dashboard
             </h2>
-            <span className="text-sm text-gray-500 font-medium">Updated just now</span>
           </div>
-          <div className="flex space-x-6 overflow-x-auto pb-4 scrollbar-hide snap-x">
+          <div className="flex space-x-3 overflow-x-auto pb-2 scrollbar-hide snap-x">
             <QuickStatsCard 
               title="Total Videos" 
               value="1,500+" 
@@ -295,7 +271,7 @@ const TutorialPage: React.FC<TutorialPageProps> = ({ onNavigate }) => {
               gradient="from-amber-50 to-orange-100"
             />
             <QuickStatsCard 
-              title="Courses Enrolled" 
+              title="Courses" 
               value="12" 
               icon={BookOpen} 
               color="text-purple-600"
@@ -303,14 +279,7 @@ const TutorialPage: React.FC<TutorialPageProps> = ({ onNavigate }) => {
               trend="+3"
             />
             <QuickStatsCard 
-              title="Study Groups" 
-              value="24" 
-              icon={Users} 
-              color="text-orange-600"
-              gradient="from-orange-50 to-red-100"
-            />
-            <QuickStatsCard 
-              title="Hours Watched" 
+              title="Hours" 
               value="47.5" 
               icon={PlayCircle} 
               color="text-blue-600"
@@ -321,58 +290,57 @@ const TutorialPage: React.FC<TutorialPageProps> = ({ onNavigate }) => {
         </div>
 
         {/* Enhanced Featured Courses Section */}
-        <div className="mb-12">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 flex items-center">
-              <Bookmark className="h-6 w-6 mr-3 text-green-500" />
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-bold text-gray-900 flex items-center">
+              <Bookmark className="h-4 w-4 mr-2 text-green-500" />
               Continue Learning
             </h2>
-            <button className="text-blue-600 font-semibold text-sm hover:text-blue-700 transition-colors">
-              View All Courses
+            <button className="text-blue-600 font-semibold text-xs hover:text-blue-700 transition-colors">
+              View All
             </button>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-3">
             {featuredCourses.map((course) => (
               <CourseCard key={course.id} course={course} />
             ))}
           </div>
         </div>
 
-        {/* Upcoming Live Sessions */}
-        <div className="mb-12">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 flex items-center">
-              <Calendar className="h-6 w-6 mr-3 text-red-500" />
-              Upcoming Live Sessions
+        {/* Upcoming Live Sessions - Simplified */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-lg font-bold text-gray-900 flex items-center">
+              <Calendar className="h-4 w-4 mr-2 text-red-500" />
+              Upcoming Live
             </h2>
-            <button className="text-red-600 font-semibold text-sm hover:text-red-700 transition-colors">
-              View Full Schedule
+            <button className="text-red-600 font-semibold text-xs hover:text-red-700 transition-colors">
+              View Schedule
             </button>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-3">
             {upcomingLiveSessions.map((session) => (
-              <div key={session.id} className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200/50 hover:shadow-xl transition-all duration-300">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="font-bold text-gray-900 text-lg mb-1">{session.title}</h3>
-                    <p className="text-sm text-gray-600">{session.subject} • {session.duration}</p>
+              <div key={session.id} className="bg-white rounded-xl p-3 shadow-lg border border-gray-200/50 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-start justify-between mb-3">
+                  <div className="flex-1">
+                    <h3 className="font-bold text-gray-900 text-sm mb-1">{session.title}</h3>
+                    <p className="text-xs text-gray-600">{session.subject}</p>
                   </div>
-                  <div className="text-right">
-                    <p className="text-sm font-semibold text-red-600">{session.time}</p>
-                    <p className="text-xs text-gray-500">{session.attendees} attending</p>
+                  <div className="text-right ml-2">
+                    <p className="text-xs font-semibold text-red-600">{session.time}</p>
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
-                    <div className="w-8 h-8 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center">
+                    <div className="w-6 h-6 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center">
                       <span className="text-white text-xs font-bold">
                         {session.instructor.split(' ').map(n => n[0]).join('')}
                       </span>
                     </div>
-                    <span className="text-sm text-gray-700">{session.instructor}</span>
+                    <span className="text-xs text-gray-700">{session.instructor.split(' ')[0]}</span>
                   </div>
-                  <button className="bg-gradient-to-r from-red-500 to-pink-600 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-200">
-                    Set Reminder
+                  <button className="bg-gradient-to-r from-red-500 to-pink-600 text-white px-3 py-1.5 rounded-lg font-semibold text-xs hover:shadow-lg transition-all duration-200">
+                    Remind
                   </button>
                 </div>
               </div>
@@ -380,24 +348,24 @@ const TutorialPage: React.FC<TutorialPageProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        {/* Premium Upgrade CTA */}
+        {/* Premium Upgrade CTA - Mobile Optimized */}
         {!userProfile?.isPremium && (
-          <div className="bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 rounded-3xl p-8 text-white shadow-2xl transform hover:scale-[1.005] transition-all duration-300">
-            <div className="flex flex-col lg:flex-row items-center justify-between">
-              <div className="flex items-center mb-6 lg:mb-0">
-                <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm mr-6">
-                  <Rocket className="h-8 w-8" />
+          <div className="bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 rounded-2xl p-4 text-white shadow-xl transform hover:scale-[1.005] transition-all duration-300">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <div className="p-2 bg-white/20 rounded-xl backdrop-blur-sm mr-3">
+                  <Rocket className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-2">Unlock Premium Features! 🚀</h3>
-                  <p className="text-amber-100">
-                    Get access to all premium courses, live sessions, and exclusive content
+                  <h3 className="text-sm font-bold mb-1">Go Premium! 🚀</h3>
+                  <p className="text-amber-100 text-xs">
+                    Unlock all features
                   </p>
                 </div>
               </div>
-              <button className="bg-white text-orange-600 font-bold py-3 px-6 rounded-2xl hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-xl flex items-center space-x-2">
-                <Crown className="h-5 w-5" />
-                <span>Upgrade Now</span>
+              <button className="bg-white text-orange-600 font-bold py-2 px-3 rounded-xl hover:scale-105 transition-transform duration-200 shadow-lg hover:shadow-xl flex items-center space-x-1 text-xs">
+                <Crown className="h-3 w-3" />
+                <span>Upgrade</span>
               </button>
             </div>
           </div>
