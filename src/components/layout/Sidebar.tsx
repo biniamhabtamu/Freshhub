@@ -95,12 +95,17 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, currentPage, onNavig
 
   const handleItemClick = (itemId: string) => {
     onNavigate(itemId);
-    onClose();
+    // Only close on mobile
+    if (window.innerWidth < 1024) {
+      onClose();
+    }
   };
 
   const handleLogout = () => {
     logout();
-    onClose();
+    if (window.innerWidth < 1024) {
+      onClose();
+    }
   };
 
   return (
@@ -118,7 +123,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, currentPage, onNavig
         fixed top-0 right-0 h-full w-80 bg-white shadow-xl safe-area-bottom 
         transform transition-transform duration-300 ease-out z-50
         ${isOpen ? 'translate-x-0' : 'translate-x-full'}
-        lg:static lg:translate-x-0 lg:w-64 lg:shadow-none
+        lg:relative lg:translate-x-0 lg:w-64 lg:h-screen lg:shadow-lg lg:flex lg:flex-col
       `}>
         
         {/* Close Button - Mobile Only */}
@@ -131,7 +136,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, currentPage, onNavig
         </button>
 
         {/* User Profile Header */}
-        <div className="p-4 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+        <div className="p-4 bg-gradient-to-br from-blue-600 to-purple-600 text-white lg:pt-6">
           <div className="flex items-center space-x-3">
             <div className="relative">
               <div className="w-12 h-12 bg-white/20 border border-white/30 rounded-xl flex items-center justify-center">
@@ -163,7 +168,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, currentPage, onNavig
                 </div>
                 <button 
                   onClick={() => handleItemClick('premium')}
-                  className="bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded hover:shadow transition-colors"
+                  className="bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded hover:bg-yellow-300 transition-colors"
                 >
                   Upgrade
                 </button>
@@ -173,7 +178,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, currentPage, onNavig
         </div>
 
         {/* Navigation Sections */}
-        <div className="h-[calc(100%-140px)] overflow-y-auto pb-4">
+        <div className="flex-1 overflow-y-auto pb-20 lg:pb-4">
           {/* Main Navigation */}
           <nav className="mt-4 px-3">
             <h4 className="text-xs font-semibold uppercase text-gray-500 mb-3 px-2">
@@ -189,11 +194,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, currentPage, onNavig
                     <button
                       onClick={() => handleItemClick(item.id)}
                       className={`
-                        w-full flex items-center space-x-3 p-3 rounded-xl transition-colors duration-200
+                        w-full flex items-center space-x-3 p-3 rounded-xl transition-all duration-200
                         ${isActive 
                           ? 'bg-blue-500 text-white shadow-sm' 
-                          : 'text-gray-700 hover:bg-gray-100'
+                          : 'text-gray-700 hover:bg-gray-100 hover:shadow-sm'
                         }
+                        lg:hover:scale-[1.02] lg:active:scale-[0.98]
                       `}
                     >
                       <Icon className={`h-5 w-5 ${isActive ? 'text-white' : item.color}`} />
@@ -220,13 +226,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, currentPage, onNavig
                     <button
                       onClick={() => handleItemClick(item.id)}
                       className={`
-                        w-full flex items-center space-x-3 p-3 rounded-xl transition-colors duration-200
+                        w-full flex items-center space-x-3 p-3 rounded-xl transition-all duration-200
                         ${isActive 
                           ? 'bg-blue-500 text-white shadow-sm' 
                           : item.isHighlighted 
-                            ? 'bg-yellow-50 text-yellow-700 hover:bg-yellow-100 border border-yellow-200' 
-                            : 'text-gray-700 hover:bg-gray-100'
+                            ? 'bg-yellow-50 text-yellow-700 hover:bg-yellow-100 border border-yellow-200 hover:shadow-sm' 
+                            : 'text-gray-700 hover:bg-gray-100 hover:shadow-sm'
                         }
+                        lg:hover:scale-[1.02] lg:active:scale-[0.98]
                       `}
                     >
                       <Icon className={`h-5 w-5 ${isActive ? 'text-white' : item.color}`} />
@@ -245,7 +252,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, currentPage, onNavig
           <div className="mt-4 px-3">
             <button
               onClick={handleLogout}
-              className="w-full flex items-center space-x-3 p-3 rounded-xl text-red-600 hover:bg-red-50 transition-colors"
+              className="w-full flex items-center space-x-3 p-3 rounded-xl text-red-600 hover:bg-red-50 hover:shadow-sm transition-all duration-200 lg:hover:scale-[1.02]"
             >
               <LogOut className="h-5 w-5" />
               <span className="text-sm font-medium">Sign Out</span>
