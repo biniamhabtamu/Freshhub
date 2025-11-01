@@ -13,7 +13,7 @@ export const subjects: Subject[] = [
     id: 'english-nat',
     name: 'English',
     icon: '📚',
-    field: 'both',
+    field: 'natural',
     isPremium: true,
     description: 'English Language and Literature for Natural Sciences'
   },

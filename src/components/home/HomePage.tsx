@@ -14,14 +14,15 @@ interface UserProfile { id: string; name: string; field: string; isPremium: bool
 const useAuth = () => ({ 
     userProfile: { 
         id: 'u1', 
-        name: 'Alex Johnson', 
-        field: 'Science', 
+        name: 'string', 
+        field:string', 
         isPremium: true,
         streak: 7
     } as UserProfile 
 });
 
 const subjects = [
+     { id: 1, name: 'english', icon: '📝', isPremium: false, color: 'from-blue-500 to-indigo-600', bgColor: 'bg-gradient-to-br from-blue-500/10 to-indigo-600/10' },
     { id: 1, name: 'Physics', icon: '⚛️', isPremium: false, color: 'from-blue-500 to-indigo-600', bgColor: 'bg-gradient-to-br from-blue-500/10 to-indigo-600/10' },
     { id: 2, name: 'Chemistry', icon: '🧪', isPremium: true, color: 'from-emerald-500 to-green-500', bgColor: 'bg-gradient-to-br from-emerald-500/10 to-green-500/10' },
     { id: 3, name: 'Biology', icon: '🧬', isPremium: false, color: 'from-purple-500 to-fuchsia-500', bgColor: 'bg-gradient-to-br from-purple-500/10 to-fuchsia-500/10' },
