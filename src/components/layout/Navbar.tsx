@@ -112,7 +112,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuToggle, onProfileClick }) => {
                             {/* App Name */}
                             <div className="flex flex-col">
                                 <h1 className="text-xl font-bold bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent leading-tight">
-                                    Elevate
+                            R_HUB
                                 </h1>
                                 <p className="text-xs text-gray-500 hidden sm:block font-medium">
                                     Learning Platform
