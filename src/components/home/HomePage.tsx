@@ -28,19 +28,24 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   };
 
   const getProgressColor = (percentage: number) => {
-    if (percentage === 0) return 'from-gray-300 to-gray-400';
-    if (percentage < 30) return 'from-red-400 to-red-500';
-    if (percentage < 60) return 'from-orange-400 to-orange-500';
-    if (percentage < 85) return 'from-yellow-400 to-yellow-500';
-    return 'from-green-400 to-green-500';
+    if (percentage === 0) return 'from-slate-300 to-slate-400';
+    if (percentage < 30) return 'from-rose-400 to-pink-500';
+    if (percentage < 60) return 'from-amber-400 to-orange-500';
+    if (percentage < 85) return 'from-lime-400 to-green-500';
+    return 'from-emerald-400 to-teal-500';
+  };
+
+  const getButtonGradient = (isAccessible: boolean) => {
+    if (!isAccessible) return 'from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600';
+    return 'from-indigo-500 to-violet-600 hover:from-indigo-600 hover:to-violet-700';
   };
 
   const getProgressBgColor = (percentage: number) => {
-    if (percentage === 0) return 'bg-gray-100';
-    if (percentage < 30) return 'bg-red-50';
-    if (percentage < 60) return 'bg-orange-50';
-    if (percentage < 85) return 'bg-yellow-50';
-    return 'bg-green-50';
+    if (percentage === 0) return 'bg-slate-100';
+    if (percentage < 30) return 'bg-rose-50';
+    if (percentage < 60) return 'bg-amber-50';
+    if (percentage < 85) return 'bg-lime-50';
+    return 'bg-emerald-50';
   };
 
   const totalProgressPercentage = Math.round(userSubjects.reduce((acc, subject) => {
@@ -119,6 +124,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                       userProfile={userProfile}
                       onNavigate={onNavigate}
                       getProgressColor={getProgressColor}
+                      getButtonGradient={getButtonGradient}
                       getProgressBgColor={getProgressBgColor}
                       index={index}
                       mounted={mounted}
@@ -164,7 +170,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                     title="Go Premium"
                     subtitle="Unlock all features"
                     icon={<Award className="h-5 w-5 text-white" />}
-                    bgColor="bg-gradient-to-r from-yellow-500 to-orange-600 border-orange-500"
+                    bgColor="bg-gradient-to-r from-purple-500 to-pink-600 border-purple-500"
                     textColor="text-white"
                     onClick={() => onNavigate('premium')}
                   />
@@ -246,6 +252,7 @@ interface EnhancedSubjectCardProps {
   userProfile: any;
   onNavigate: (page: string, subject?: string) => void;
   getProgressColor: (percentage: number) => string;
+  getButtonGradient: (isAccessible: boolean) => string;
   getProgressBgColor: (percentage: number) => string;
   index: number;
   mounted: boolean;
@@ -259,6 +266,7 @@ const EnhancedSubjectCard: React.FC<EnhancedSubjectCardProps> = ({
   userProfile,
   onNavigate,
   getProgressColor,
+  getButtonGradient,
   getProgressBgColor,
   index,
   mounted,
@@ -266,7 +274,7 @@ const EnhancedSubjectCard: React.FC<EnhancedSubjectCardProps> = ({
   <div
     className={`
       relative bg-white border border-gray-200 rounded-xl p-4 transition-all duration-500 h-full flex flex-col
-      group hover:shadow-lg hover:border-blue-300 overflow-hidden min-h-[180px] max-w-[280px] mx-auto
+      group hover:shadow-lg hover:border-indigo-300 overflow-hidden min-h-[180px] max-w-[280px] mx-auto
       ${isAccessible ? 'cursor-pointer' : 'opacity-80'}
       ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
     `}
@@ -274,21 +282,21 @@ const EnhancedSubjectCard: React.FC<EnhancedSubjectCardProps> = ({
     onClick={() => isAccessible && onNavigate('subject', subject.name)}
   >
     {/* Background gradient on hover */}
-    <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+    <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-violet-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     
     {/* Top Right Badges */}
     <div className="absolute top-3 right-3 flex space-x-1.5 z-10">
       {!isAccessible && (
-        <div className="p-1 bg-gray-100 rounded-lg shadow-sm border border-gray-200">
-          <Lock className="h-3 w-3 text-gray-500" />
+        <div className="p-1 bg-slate-100 rounded-lg shadow-sm border border-slate-200">
+          <Lock className="h-3 w-3 text-slate-500" />
         </div>
       )}
       {subject.isPremium ? (
-        <span className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs px-2 py-1 rounded-lg font-semibold shadow-sm">
+        <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs px-2 py-1 rounded-lg font-semibold shadow-sm">
           PREMIUM
         </span>
       ) : (
-        <span className="bg-gradient-to-r from-emerald-500 to-green-500 text-white text-xs px-2 py-1 rounded-lg font-semibold shadow-sm">
+        <span className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-xs px-2 py-1 rounded-lg font-semibold shadow-sm">
           FREE
         </span>
       )}
@@ -298,7 +306,7 @@ const EnhancedSubjectCard: React.FC<EnhancedSubjectCardProps> = ({
     <div className="relative z-1 flex flex-col h-full">
       {/* Icon and Title */}
       <div className="flex items-center space-x-2 mb-3">
-        <div className="text-2xl text-blue-600">{subject.icon}</div>
+        <div className="text-2xl text-indigo-600">{subject.icon}</div>
         <h3 className={`font-bold text-base ${isAccessible ? 'text-gray-900' : 'text-gray-500'}`}>
           {subject.name}
         </h3>
@@ -346,7 +354,7 @@ const EnhancedSubjectCard: React.FC<EnhancedSubjectCardProps> = ({
       {/* Action Button */}
       <div className="mt-auto pt-2">
         {isAccessible ? (
-          <button className="w-full group/btn bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-3 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-1.5 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm">
+          <button className={`w-full group/btn bg-gradient-to-r ${getButtonGradient(isAccessible)} text-white py-2 px-3 rounded-lg transition-all duration-300 flex items-center justify-center space-x-1.5 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm`}>
             <Play className="h-3.5 w-3.5 transition-transform group-hover/btn:scale-110" />
             <span>Start Learning</span>
           </button>
@@ -356,7 +364,7 @@ const EnhancedSubjectCard: React.FC<EnhancedSubjectCardProps> = ({
               e.stopPropagation();
               onNavigate('premium');
             }}
-            className="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white py-2 px-3 rounded-lg hover:from-amber-600 hover:to-orange-600 transition-all duration-300 flex items-center justify-center space-x-1.5 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm"
+            className={`w-full bg-gradient-to-r ${getButtonGradient(isAccessible)} text-white py-2 px-3 rounded-lg transition-all duration-300 flex items-center justify-center space-x-1.5 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm`}
           >
             <Lock className="h-3.5 w-3.5" />
             <span>Upgrade</span>
@@ -404,11 +412,11 @@ const Legend: React.FC = () => (
   <div className="flex items-center space-x-4 text-sm text-gray-600 mt-4 sm:mt-0">
     <div className="flex items-center space-x-2">
       <div className="flex items-center space-x-1">
-        <div className="w-2.5 h-2.5 bg-gradient-to-r from-emerald-500 to-green-500 rounded shadow-sm"></div>
+        <div className="w-2.5 h-2.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded shadow-sm"></div>
         <span className="text-xs">Free</span>
       </div>
       <div className="flex items-center space-x-1">
-        <div className="w-2.5 h-2.5 bg-gradient-to-r from-amber-500 to-orange-500 rounded shadow-sm"></div>
+        <div className="w-2.5 h-2.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded shadow-sm"></div>
         <span className="text-xs">Premium</span>
       </div>
     </div>
