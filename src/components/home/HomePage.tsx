@@ -86,45 +86,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        {/* Enhanced Quick Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
-          <EnhancedStatCard
-            title="Total Subjects"
-            value={userSubjects.length.toString()}
-            subtitle="Available to study"
-            icon={<BookOpen className="h-6 w-6 text-white" />}
-            gradient="from-blue-500 to-cyan-500"
-            delay={0}
-            mounted={mounted}
-          />
-          <EnhancedStatCard
-            title="Premium Status"
-            value={userProfile.isPremium ? 'Active' : 'Free'}
-            subtitle={userProfile.isPremium ? 'All features unlocked' : 'Upgrade for more'}
-            icon={<Trophy className="h-6 w-6 text-white" />}
-            gradient={userProfile.isPremium ? "from-yellow-500 to-orange-500" : "from-gray-500 to-slate-600"}
-            delay={100}
-            mounted={mounted}
-          />
-          <EnhancedStatCard
-            title="Overall Progress"
-            value={`${totalProgressPercentage}%`}
-            subtitle="Across all subjects"
-            icon={<TrendingUp className="h-6 w-6 text-white" />}
-            gradient="from-green-500 to-emerald-600"
-            delay={200}
-            mounted={mounted}
-          />
-          <EnhancedStatCard
-            title="Daily Goal"
-            value={userProfile.isPremium ? "5/5" : "3/5"}
-            subtitle={userProfile.isPremium ? "Completed" : "Complete to unlock"}
-            icon={<Star className="h-6 w-6 text-white" />}
-            gradient="from-purple-500 to-pink-500"
-            delay={300}
-            mounted={mounted}
-          />
-        </div>
+       
 
         {/* Main Content Area */}
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
