@@ -103,7 +103,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 <Legend />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
                 {userSubjects.map((subject, index) => {
                   const progress = getSubjectProgress(subject.name);
                   const isAccessible = !subject.isPremium || userProfile.isPremium;
@@ -265,8 +265,8 @@ const EnhancedSubjectCard: React.FC<EnhancedSubjectCardProps> = ({
 }) => (
   <div
     className={`
-      relative bg-white border border-gray-200 rounded-2xl p-5 transition-all duration-500 h-full flex flex-col
-      group hover:shadow-xl hover:border-blue-300 overflow-hidden
+      relative bg-white border border-gray-200 rounded-xl p-4 transition-all duration-500 h-full flex flex-col
+      group hover:shadow-lg hover:border-blue-300 overflow-hidden min-h-[180px] max-w-[280px] mx-auto
       ${isAccessible ? 'cursor-pointer' : 'opacity-80'}
       ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
     `}
@@ -277,18 +277,18 @@ const EnhancedSubjectCard: React.FC<EnhancedSubjectCardProps> = ({
     <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     
     {/* Top Right Badges */}
-    <div className="absolute top-4 right-4 flex space-x-2 z-10">
+    <div className="absolute top-3 right-3 flex space-x-1.5 z-10">
       {!isAccessible && (
-        <div className="p-1.5 bg-gray-100 rounded-full shadow-sm border border-gray-200">
-          <Lock className="h-3.5 w-3.5 text-gray-500" />
+        <div className="p-1 bg-gray-100 rounded-lg shadow-sm border border-gray-200">
+          <Lock className="h-3 w-3 text-gray-500" />
         </div>
       )}
       {subject.isPremium ? (
-        <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs px-2.5 py-1 rounded-full font-bold shadow-sm">
+        <span className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs px-2 py-1 rounded-lg font-semibold shadow-sm">
           PREMIUM
         </span>
       ) : (
-        <span className="bg-gradient-to-r from-green-400 to-emerald-500 text-white text-xs px-2.5 py-1 rounded-full font-bold shadow-sm">
+        <span className="bg-gradient-to-r from-emerald-500 to-green-500 text-white text-xs px-2 py-1 rounded-lg font-semibold shadow-sm">
           FREE
         </span>
       )}
@@ -297,59 +297,58 @@ const EnhancedSubjectCard: React.FC<EnhancedSubjectCardProps> = ({
     {/* Subject Content */}
     <div className="relative z-1 flex flex-col h-full">
       {/* Icon and Title */}
-      <div className="flex items-center space-x-3 mb-4">
-        <div className="text-3xl">{subject.icon}</div>
-        <h3 className={`font-bold text-lg ${isAccessible ? 'text-gray-900' : 'text-gray-500'}`}>
+      <div className="flex items-center space-x-2 mb-3">
+        <div className="text-2xl text-blue-600">{subject.icon}</div>
+        <h3 className={`font-bold text-base ${isAccessible ? 'text-gray-900' : 'text-gray-500'}`}>
           {subject.name}
         </h3>
       </div>
 
       {/* Description */}
-      <p className={`text-sm mb-4 flex-grow ${isAccessible ? 'text-gray-600' : 'text-gray-400'}`}>
+      <p className={`text-xs mb-3 flex-grow ${isAccessible ? 'text-gray-600' : 'text-gray-400'} line-clamp-2`}>
         {subject.description}
       </p>
 
       {/* Metadata */}
-      <div className="flex items-center space-x-4 mb-4 text-xs text-gray-500">
+      <div className="flex items-center space-x-3 mb-3 text-xs text-gray-500">
         <div className="flex items-center space-x-1">
-          <Clock className="h-3.5 w-3.5" />
-          <span>{questionsCount} questions</span>
+          <Clock className="h-3 w-3" />
+          <span>{questionsCount} Qs</span>
         </div>
         {progress.percentage > 0 && (
           <div className="flex items-center space-x-1">
-            <TrendingUp className="h-3.5 w-3.5" />
-            <span>{progress.percentage}% complete</span>
+            <TrendingUp className="h-3 w-3" />
+            <span>{progress.percentage}%</span>
           </div>
         )}
       </div>
 
       {/* Progress Bar */}
       {isAccessible && progress.percentage > 0 && (
-        <div className="space-y-2 mb-4">
+        <div className="space-y-1.5 mb-3">
           <div className="flex justify-between items-center text-xs">
-            <span className="font-medium text-gray-700">Your progress</span>
+            <span className="font-medium text-gray-700">Progress</span>
             <span className="font-bold text-gray-900">{progress.percentage}%</span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+          <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
             <div
-              className={`h-2 rounded-full bg-gradient-to-r ${getProgressColor(progress.percentage)} transition-all duration-1000 ease-out`}
+              className={`h-1.5 rounded-full bg-gradient-to-r ${getProgressColor(progress.percentage)} transition-all duration-1000 ease-out`}
               style={{ width: `${progress.percentage}%` }}
             />
           </div>
           <div className="flex justify-between text-xs text-gray-500">
-            <span>{progress.completed} completed</span>
+            <span>{progress.completed} done</span>
             <span>{progress.total} total</span>
           </div>
         </div>
       )}
 
       {/* Action Button */}
-      <div className="mt-auto pt-4">
+      <div className="mt-auto pt-2">
         {isAccessible ? (
-          <button className="w-full group/btn bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-4 rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-2 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-            <Play className="h-4 w-4 transition-transform group-hover/btn:scale-110" />
+          <button className="w-full group/btn bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-3 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-1.5 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm">
+            <Play className="h-3.5 w-3.5 transition-transform group-hover/btn:scale-110" />
             <span>Start Learning</span>
-            <ChevronRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
           </button>
         ) : (
           <button
@@ -357,10 +356,10 @@ const EnhancedSubjectCard: React.FC<EnhancedSubjectCardProps> = ({
               e.stopPropagation();
               onNavigate('premium');
             }}
-            className="w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white py-3 px-4 rounded-xl hover:from-yellow-500 hover:to-orange-600 transition-all duration-300 flex items-center justify-center space-x-2 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            className="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white py-2 px-3 rounded-lg hover:from-amber-600 hover:to-orange-600 transition-all duration-300 flex items-center justify-center space-x-1.5 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm"
           >
-            <Lock className="h-4 w-4" />
-            <span>Upgrade to Access</span>
+            <Lock className="h-3.5 w-3.5" />
+            <span>Upgrade</span>
           </button>
         )}
       </div>
@@ -384,17 +383,17 @@ const EnhancedActionButton: React.FC<EnhancedActionButtonProps> = ({
   <button
     onClick={onClick}
     className={`
-      w-full ${bgColor} p-4 rounded-xl shadow-sm border transition-all duration-300 
-      text-left group flex items-center space-x-4 hover:shadow-lg hover:scale-[1.02]
+      w-full ${bgColor} p-3 rounded-xl shadow-sm border transition-all duration-300 
+      text-left group flex items-center space-x-3 hover:shadow-md hover:scale-[1.02]
       ${textColor === 'text-white' ? 'border-transparent' : ''}
     `}
   >
-    <div className={`p-2 rounded-lg transition-transform duration-300 group-hover:scale-110 ${textColor === 'text-white' ? 'bg-white/20' : 'bg-white shadow-sm'}`}>
+    <div className={`p-1.5 rounded-lg transition-transform duration-300 group-hover:scale-110 ${textColor === 'text-white' ? 'bg-white/20' : 'bg-white shadow-sm'}`}>
       {icon}
     </div>
     <div className="flex-1">
-      <h3 className={`font-semibold ${textColor}`}>{title}</h3>
-      <p className={`text-sm ${textColor === 'text-white' ? 'text-white/90' : 'text-gray-600'}`}>{subtitle}</p>
+      <h3 className={`font-semibold text-sm ${textColor}`}>{title}</h3>
+      <p className={`text-xs ${textColor === 'text-white' ? 'text-white/90' : 'text-gray-600'}`}>{subtitle}</p>
     </div>
     <ChevronRight className={`h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 ${textColor === 'text-white' ? 'text-white/80' : 'text-gray-400'}`} />
   </button>
@@ -405,18 +404,18 @@ const Legend: React.FC = () => (
   <div className="flex items-center space-x-4 text-sm text-gray-600 mt-4 sm:mt-0">
     <div className="flex items-center space-x-2">
       <div className="flex items-center space-x-1">
-        <div className="w-3 h-3 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full shadow-sm"></div>
-        <span>Free</span>
+        <div className="w-2.5 h-2.5 bg-gradient-to-r from-emerald-500 to-green-500 rounded shadow-sm"></div>
+        <span className="text-xs">Free</span>
       </div>
       <div className="flex items-center space-x-1">
-        <div className="w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full shadow-sm"></div>
-        <span>Premium</span>
+        <div className="w-2.5 h-2.5 bg-gradient-to-r from-amber-500 to-orange-500 rounded shadow-sm"></div>
+        <span className="text-xs">Premium</span>
       </div>
     </div>
-    <div className="h-4 w-px bg-gray-300"></div>
+    <div className="h-3 w-px bg-gray-300"></div>
     <div className="flex items-center space-x-1">
-      <Lock className="h-3.5 w-3.5 text-gray-500" />
-      <span>Locked</span>
+      <Lock className="h-3 w-3 text-gray-500" />
+      <span className="text-xs">Locked</span>
     </div>
   </div>
 );
