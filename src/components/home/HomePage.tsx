@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Lock, Play, BookOpen, Trophy, TrendingUp, Clock, Zap, Star, ChevronRight, Users, Award, Target } from 'lucide-react';
+import { Lock, Play, BookOpen, Trophy, TrendingUp, Clock, Zap, Star, ChevronRight, Users, Award, Target, Crown, Sparkles } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { subjects, getSubjectsByField } from '../../data/subjects';
 import { getQuestionsBySubject } from '../../data/questions';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface HomePageProps {
   onNavigate: (page: string, subject?: string) => void;
@@ -35,28 +36,13 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     return 'from-emerald-400 to-teal-500';
   };
 
-  const getButtonGradient = (isAccessible: boolean) => {
-    if (!isAccessible) return 'from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600';
-    return 'from-indigo-500 to-violet-600 hover:from-indigo-600 hover:to-violet-700';
-  };
-
-  const getProgressBgColor = (percentage: number) => {
-    if (percentage === 0) return 'bg-slate-100';
-    if (percentage < 30) return 'bg-rose-50';
-    if (percentage < 60) return 'bg-amber-50';
-    if (percentage < 85) return 'bg-lime-50';
-    return 'bg-emerald-50';
-  };
-
   const totalProgressPercentage = Math.round(userSubjects.reduce((acc, subject) => {
     const progress = getSubjectProgress(subject.name);
     return acc + progress.percentage;
   }, 0) / (userSubjects.length || 1));
 
-  // Calculate streak or recent activity
   const getDailyStreak = () => {
-    // This would typically come from your backend or localStorage
-    return Math.floor(Math.random() * 7) + 1; // Mock data
+    return Math.floor(Math.random() * 7) + 1;
   };
 
   const dailyStreak = getDailyStreak();
@@ -78,7 +64,11 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               </p>
             </div>
             {dailyStreak > 0 && (
-              <div className="mt-4 sm:mt-0 flex items-center space-x-2 bg-white rounded-xl px-4 py-3 shadow-lg border border-yellow-200">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="mt-4 sm:mt-0 flex items-center space-x-2 bg-white rounded-xl px-4 py-3 shadow-lg border border-yellow-200"
+              >
                 <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full">
                   <Target className="h-5 w-5 text-white" />
                 </div>
@@ -86,12 +76,10 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <p className="text-sm font-semibold text-gray-700">{dailyStreak} day streak</p>
                   <p className="text-xs text-gray-500">Keep it going!</p>
                 </div>
-              </div>
+              </motion.div>
             )}
           </div>
         </div>
-
-       
 
         {/* Main Content Area */}
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
@@ -108,29 +96,29 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 <Legend />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
-                {userSubjects.map((subject, index) => {
-                  const progress = getSubjectProgress(subject.name);
-                  const isAccessible = !subject.isPremium || userProfile.isPremium;
-                  const questionsCount = getQuestionsBySubject(subject.name, userProfile.field).length;
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+                <AnimatePresence>
+                  {userSubjects.map((subject, index) => {
+                    const progress = getSubjectProgress(subject.name);
+                    const isAccessible = !subject.isPremium || userProfile.isPremium;
+                    const questionsCount = getQuestionsBySubject(subject.name, userProfile.field).length;
 
-                  return (
-                    <EnhancedSubjectCard
-                      key={subject.id}
-                      subject={subject}
-                      progress={progress}
-                      isAccessible={isAccessible}
-                      questionsCount={questionsCount}
-                      userProfile={userProfile}
-                      onNavigate={onNavigate}
-                      getProgressColor={getProgressColor}
-                      getButtonGradient={getButtonGradient}
-                      getProgressBgColor={getProgressBgColor}
-                      index={index}
-                      mounted={mounted}
-                    />
-                  );
-                })}
+                    return (
+                      <MinimizedSubjectCard
+                        key={subject.id}
+                        subject={subject}
+                        progress={progress}
+                        isAccessible={isAccessible}
+                        questionsCount={questionsCount}
+                        userProfile={userProfile}
+                        onNavigate={onNavigate}
+                        getProgressColor={getProgressColor}
+                        index={index}
+                        mounted={mounted}
+                      />
+                    );
+                  })}
+                </AnimatePresence>
               </div>
             </div>
           </div>
@@ -207,44 +195,8 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
 export default HomePage;
 
-// Enhanced Stat Card with animations
-interface EnhancedStatCardProps {
-  title: string;
-  value: string;
-  subtitle: string;
-  icon: React.ReactNode;
-  gradient: string;
-  delay: number;
-  mounted: boolean;
-}
-
-const EnhancedStatCard: React.FC<EnhancedStatCardProps> = ({ 
-  title, value, subtitle, icon, gradient, delay, mounted 
-}) => (
-  <div 
-    className={`
-      bg-white rounded-2xl p-5 shadow-lg border border-gray-100 overflow-hidden relative
-      transition-all duration-500 transform hover:scale-[1.02] hover:shadow-xl
-      ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-    `}
-    style={{ transitionDelay: `${delay}ms` }}
-  >
-    <div className="flex items-center justify-between">
-      <div className="flex-1">
-        <p className="text-sm font-medium text-gray-500 mb-1">{title}</p>
-        <p className="text-2xl font-bold text-gray-900 mb-1">{value}</p>
-        <p className="text-xs text-gray-400">{subtitle}</p>
-      </div>
-      <div className={`p-3 rounded-xl bg-gradient-to-r ${gradient} shadow-md`}>
-        {icon}
-      </div>
-    </div>
-    <div className={`absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r ${gradient}`} />
-  </div>
-);
-
-// Enhanced Subject Card
-interface EnhancedSubjectCardProps {
+// Minimized Subject Card inspired by HandoutPage design
+interface MinimizedSubjectCardProps {
   subject: any;
   progress: { completed: number; total: number; percentage: number };
   isAccessible: boolean;
@@ -252,13 +204,11 @@ interface EnhancedSubjectCardProps {
   userProfile: any;
   onNavigate: (page: string, subject?: string) => void;
   getProgressColor: (percentage: number) => string;
-  getButtonGradient: (isAccessible: boolean) => string;
-  getProgressBgColor: (percentage: number) => string;
   index: number;
   mounted: boolean;
 }
 
-const EnhancedSubjectCard: React.FC<EnhancedSubjectCardProps> = ({
+const MinimizedSubjectCard: React.FC<MinimizedSubjectCardProps> = ({
   subject,
   progress,
   isAccessible,
@@ -266,114 +216,93 @@ const EnhancedSubjectCard: React.FC<EnhancedSubjectCardProps> = ({
   userProfile,
   onNavigate,
   getProgressColor,
-  getButtonGradient,
-  getProgressBgColor,
   index,
   mounted,
-}) => (
-  <div
-    className={`
-      relative bg-white border border-gray-200 rounded-xl p-4 transition-all duration-500 h-full flex flex-col
-      group hover:shadow-lg hover:border-indigo-300 overflow-hidden min-h-[180px] max-w-[280px] mx-auto
-      ${isAccessible ? 'cursor-pointer' : 'opacity-80'}
-      ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-    `}
-    style={{ transitionDelay: `${index * 100}ms` }}
-    onClick={() => isAccessible && onNavigate('subject', subject.name)}
-  >
-    {/* Background gradient on hover */}
-    <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-violet-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-    
-    {/* Top Right Badges */}
-    <div className="absolute top-3 right-3 flex space-x-1.5 z-10">
-      {!isAccessible && (
-        <div className="p-1 bg-slate-100 rounded-lg shadow-sm border border-slate-200">
-          <Lock className="h-3 w-3 text-slate-500" />
+}) => {
+  const handleClick = () => {
+    if (isAccessible) {
+      onNavigate('subject', subject.name);
+    } else {
+      onNavigate('premium');
+    }
+  };
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.3, ease: "easeOut", delay: index * 0.05 }}
+      className={`
+        relative rounded-2xl shadow-lg border overflow-hidden cursor-pointer group
+        transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-purple-400/30
+        ${!isAccessible ? 'bg-gradient-to-br from-gray-100 to-gray-200 border-gray-300' : 
+          'bg-gradient-to-br from-white to-gray-50 border-gray-200'}
+      `}
+      onClick={handleClick}
+      tabIndex={0}
+      aria-label={`Select ${subject.name} ${!isAccessible ? '(locked)' : ''}`}
+    >
+      <div className="p-5 flex flex-col items-center text-center h-full">
+        {/* Subject Icon */}
+        <div className={`
+          p-4 rounded-2xl flex items-center justify-center shrink-0 mb-3 transition-all duration-300 group-hover:scale-110
+          ${!isAccessible ? 'bg-gray-300/50' : 'bg-gradient-to-br from-purple-100 to-indigo-100'}
+        `}>
+          <span className={`text-3xl ${!isAccessible ? 'text-gray-500' : 'text-purple-600'}`}>
+            {!isAccessible ? '🔒' : subject.icon}
+          </span>
         </div>
-      )}
-      {subject.isPremium ? (
-        <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs px-2 py-1 rounded-lg font-semibold shadow-sm">
-          PREMIUM
-        </span>
-      ) : (
-        <span className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-xs px-2 py-1 rounded-lg font-semibold shadow-sm">
-          FREE
-        </span>
-      )}
-    </div>
 
-    {/* Subject Content */}
-    <div className="relative z-1 flex flex-col h-full">
-      {/* Icon and Title */}
-      <div className="flex items-center space-x-2 mb-3">
-        <div className="text-2xl text-indigo-600">{subject.icon}</div>
-        <h3 className={`font-bold text-base ${isAccessible ? 'text-gray-900' : 'text-gray-500'}`}>
-          {subject.name}
-        </h3>
-      </div>
-
-      {/* Description */}
-      <p className={`text-xs mb-3 flex-grow ${isAccessible ? 'text-gray-600' : 'text-gray-400'} line-clamp-2`}>
-        {subject.description}
-      </p>
-
-      {/* Metadata */}
-      <div className="flex items-center space-x-3 mb-3 text-xs text-gray-500">
-        <div className="flex items-center space-x-1">
-          <Clock className="h-3 w-3" />
-          <span>{questionsCount} Qs</span>
+        {/* Subject Info */}
+        <div className="flex-1 flex flex-col justify-center w-full">
+          <h3 className={`text-base font-bold truncate mb-1 ${!isAccessible ? 'text-gray-500' : 'text-gray-800'}`}>
+            {subject.name}
+          </h3>
+          <p className={`text-xs ${!isAccessible ? 'text-gray-400' : 'text-gray-500'}`}>
+            {!isAccessible ? 'Upgrade to access' : `${questionsCount} questions`}
+          </p>
         </div>
-        {progress.percentage > 0 && (
-          <div className="flex items-center space-x-1">
-            <TrendingUp className="h-3 w-3" />
-            <span>{progress.percentage}%</span>
+
+        {/* Progress Indicator */}
+        {isAccessible && progress.percentage > 0 && (
+          <div className="w-full mt-3 space-y-1">
+            <div className="flex justify-between items-center text-xs">
+              <span className="font-medium text-gray-600">Progress</span>
+              <span className="font-bold text-gray-800">{progress.percentage}%</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
+              <div
+                className={`h-1.5 rounded-full bg-gradient-to-r ${getProgressColor(progress.percentage)} transition-all duration-1000 ease-out`}
+                style={{ width: `${progress.percentage}%` }}
+              />
+            </div>
           </div>
         )}
-      </div>
 
-      {/* Progress Bar */}
-      {isAccessible && progress.percentage > 0 && (
-        <div className="space-y-1.5 mb-3">
-          <div className="flex justify-between items-center text-xs">
-            <span className="font-medium text-gray-700">Progress</span>
-            <span className="font-bold text-gray-900">{progress.percentage}%</span>
+        {/* Premium Badge */}
+        {!isAccessible && !subject.isFree && (
+          <div className="absolute top-3 right-3 flex items-center justify-center w-6 h-6 bg-amber-500 rounded-full shadow-md">
+            <Crown className="w-3 h-3 text-white" aria-hidden="true" />
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
-            <div
-              className={`h-1.5 rounded-full bg-gradient-to-r ${getProgressColor(progress.percentage)} transition-all duration-1000 ease-out`}
-              style={{ width: `${progress.percentage}%` }}
-            />
-          </div>
-          <div className="flex justify-between text-xs text-gray-500">
-            <span>{progress.completed} done</span>
-            <span>{progress.total} total</span>
-          </div>
-        </div>
-      )}
-
-      {/* Action Button */}
-      <div className="mt-auto pt-2">
-        {isAccessible ? (
-          <button className={`w-full group/btn bg-gradient-to-r ${getButtonGradient(isAccessible)} text-white py-2 px-3 rounded-lg transition-all duration-300 flex items-center justify-center space-x-1.5 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm`}>
-            <Play className="h-3.5 w-3.5 transition-transform group-hover/btn:scale-110" />
-            <span>Start Learning</span>
-          </button>
-        ) : (
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              onNavigate('premium');
-            }}
-            className={`w-full bg-gradient-to-r ${getButtonGradient(isAccessible)} text-white py-2 px-3 rounded-lg transition-all duration-300 flex items-center justify-center space-x-1.5 font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm`}
-          >
-            <Lock className="h-3.5 w-3.5" />
-            <span>Upgrade</span>
-          </button>
         )}
+
+        {/* Free/Premium Tag */}
+        <div className="absolute top-3 left-3">
+          {subject.isPremium ? (
+            <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs px-2 py-1 rounded-lg font-semibold shadow-sm">
+              PREM
+            </span>
+          ) : (
+            <span className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-xs px-2 py-1 rounded-lg font-semibold shadow-sm">
+              FREE
+            </span>
+          )}
+        </div>
       </div>
-    </div>
-  </div>
-);
+    </motion.article>
+  );
+};
 
 // Enhanced Action Button
 interface EnhancedActionButtonProps {
@@ -388,11 +317,13 @@ interface EnhancedActionButtonProps {
 const EnhancedActionButton: React.FC<EnhancedActionButtonProps> = ({ 
   title, subtitle, icon, bgColor, textColor = 'text-gray-900', onClick 
 }) => (
-  <button
+  <motion.button
+    whileHover={{ scale: 1.02 }}
+    whileTap={{ scale: 0.98 }}
     onClick={onClick}
     className={`
       w-full ${bgColor} p-3 rounded-xl shadow-sm border transition-all duration-300 
-      text-left group flex items-center space-x-3 hover:shadow-md hover:scale-[1.02]
+      text-left group flex items-center space-x-3 hover:shadow-md
       ${textColor === 'text-white' ? 'border-transparent' : ''}
     `}
   >
@@ -404,7 +335,7 @@ const EnhancedActionButton: React.FC<EnhancedActionButtonProps> = ({
       <p className={`text-xs ${textColor === 'text-white' ? 'text-white/90' : 'text-gray-600'}`}>{subtitle}</p>
     </div>
     <ChevronRight className={`h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 ${textColor === 'text-white' ? 'text-white/80' : 'text-gray-400'}`} />
-  </button>
+  </motion.button>
 );
 
 // Enhanced Legend Component
